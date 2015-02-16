@@ -11,3 +11,5 @@ I created this project to analyse the data from my robot. This application can:
  This program needs to work closely together with the arduino program, wich I'll post here as well.
  
  If you have any questions feel free to reach out.
+
+Here's a video of the application: http://youtu.be/aRB7GQL-qaU
