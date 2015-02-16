@@ -13,3 +13,4 @@ I created this project to analyse the data from my robot. This application can:
  If you have any questions feel free to reach out.
 
 Here's a video of the application: http://youtu.be/aRB7GQL-qaU
+And here's a video of the robot making it's first steps: http://youtu.be/MYaE5-zlq8g
