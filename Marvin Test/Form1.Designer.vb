@@ -23,9 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.StartStopButton = New System.Windows.Forms.Button()
         Me.JoyStickButton = New System.Windows.Forms.Button()
@@ -56,6 +56,8 @@ Partial Class Form1
         Me.SaveValues = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.IncreaseScale = New System.Windows.Forms.Label()
+        Me.DecreaseScale = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +115,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(9, 11)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 13)
+        Me.Label1.Size = New System.Drawing.Size(56, 15)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "P - Value"
         '
@@ -123,7 +125,7 @@ Partial Class Form1
         Me.Label2.Location = New System.Drawing.Point(86, 11)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.Size = New System.Drawing.Size(51, 15)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "I - Value"
         '
@@ -133,7 +135,7 @@ Partial Class Form1
         Me.Label3.Location = New System.Drawing.Point(166, 11)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
+        Me.Label3.Size = New System.Drawing.Size(57, 15)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "D - Value"
         '
@@ -142,20 +144,20 @@ Partial Class Form1
         Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.AxisX.IsStartedFromZero = False
-        ChartArea2.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
+        ChartArea1.AxisX.IsStartedFromZero = False
+        ChartArea1.BackSecondaryColor = System.Drawing.Color.Red
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.Cursor = System.Windows.Forms.Cursors.Cross
-        Legend2.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend2)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(-1, 159)
         Me.Chart1.Margin = New System.Windows.Forms.Padding(2)
         Me.Chart1.Name = "Chart1"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart1.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(556, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
@@ -191,7 +193,7 @@ Partial Class Form1
         Me.CheckBoxAngle.Location = New System.Drawing.Point(12, 55)
         Me.CheckBoxAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxAngle.Name = "CheckBoxAngle"
-        Me.CheckBoxAngle.Size = New System.Drawing.Size(53, 17)
+        Me.CheckBoxAngle.Size = New System.Drawing.Size(60, 19)
         Me.CheckBoxAngle.TabIndex = 17
         Me.CheckBoxAngle.Text = "Angle"
         Me.CheckBoxAngle.UseVisualStyleBackColor = True
@@ -222,7 +224,7 @@ Partial Class Form1
         Me.Increment.Location = New System.Drawing.Point(244, 77)
         Me.Increment.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Increment.Name = "Increment"
-        Me.Increment.Size = New System.Drawing.Size(54, 13)
+        Me.Increment.Size = New System.Drawing.Size(62, 15)
         Me.Increment.TabIndex = 19
         Me.Increment.Text = "Increment"
         '
@@ -269,7 +271,7 @@ Partial Class Form1
         Me.CheckBoxJoyX.Location = New System.Drawing.Point(12, 74)
         Me.CheckBoxJoyX.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxJoyX.Name = "CheckBoxJoyX"
-        Me.CheckBoxJoyX.Size = New System.Drawing.Size(49, 17)
+        Me.CheckBoxJoyX.Size = New System.Drawing.Size(55, 19)
         Me.CheckBoxJoyX.TabIndex = 22
         Me.CheckBoxJoyX.Text = "JoyX"
         Me.CheckBoxJoyX.UseVisualStyleBackColor = True
@@ -280,7 +282,7 @@ Partial Class Form1
         Me.CheckBoxJoyY.Location = New System.Drawing.Point(12, 95)
         Me.CheckBoxJoyY.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxJoyY.Name = "CheckBoxJoyY"
-        Me.CheckBoxJoyY.Size = New System.Drawing.Size(49, 17)
+        Me.CheckBoxJoyY.Size = New System.Drawing.Size(54, 19)
         Me.CheckBoxJoyY.TabIndex = 23
         Me.CheckBoxJoyY.Text = "JoyY"
         Me.CheckBoxJoyY.UseVisualStyleBackColor = True
@@ -297,7 +299,7 @@ Partial Class Form1
         Me.NAngle.AutoSize = True
         Me.NAngle.Location = New System.Drawing.Point(232, 11)
         Me.NAngle.Name = "NAngle"
-        Me.NAngle.Size = New System.Drawing.Size(71, 13)
+        Me.NAngle.Size = New System.Drawing.Size(81, 15)
         Me.NAngle.TabIndex = 25
         Me.NAngle.Text = "Neutral Angle"
         '
@@ -306,7 +308,7 @@ Partial Class Form1
         Me.RefreshRate.AutoSize = True
         Me.RefreshRate.Location = New System.Drawing.Point(166, 77)
         Me.RefreshRate.Name = "RefreshRate"
-        Me.RefreshRate.Size = New System.Drawing.Size(70, 13)
+        Me.RefreshRate.Size = New System.Drawing.Size(79, 15)
         Me.RefreshRate.TabIndex = 26
         Me.RefreshRate.Text = "Refresh Rate"
         '
@@ -337,9 +339,29 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(9, 118)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(132, 13)
+        Me.Label4.Size = New System.Drawing.Size(155, 15)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Latest incomming data line"
+        '
+        'IncreaseScale
+        '
+        Me.IncreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IncreaseScale.AutoSize = True
+        Me.IncreaseScale.Location = New System.Drawing.Point(528, 385)
+        Me.IncreaseScale.Name = "IncreaseScale"
+        Me.IncreaseScale.Size = New System.Drawing.Size(14, 15)
+        Me.IncreaseScale.TabIndex = 30
+        Me.IncreaseScale.Text = "+"
+        '
+        'DecreaseScale
+        '
+        Me.DecreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DecreaseScale.AutoSize = True
+        Me.DecreaseScale.Location = New System.Drawing.Point(508, 385)
+        Me.DecreaseScale.Name = "DecreaseScale"
+        Me.DecreaseScale.Size = New System.Drawing.Size(11, 15)
+        Me.DecreaseScale.TabIndex = 31
+        Me.DecreaseScale.Text = "-"
         '
         'Form1
         '
@@ -347,6 +369,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(554, 409)
+        Me.Controls.Add(Me.DecreaseScale)
+        Me.Controls.Add(Me.IncreaseScale)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.SaveValues)
         Me.Controls.Add(Me.RefreshRateBox)
@@ -414,5 +438,7 @@ Partial Class Form1
     Friend WithEvents SaveValues As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents IncreaseScale As System.Windows.Forms.Label
+    Friend WithEvents DecreaseScale As System.Windows.Forms.Label
 
 End Class

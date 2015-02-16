@@ -11,6 +11,7 @@ Public Class Form1
     Dim printvalues As Boolean = False
     Dim connected As Boolean
     Dim plotindex As Integer
+    Dim plotscale As Integer = 20
 
     Delegate Sub StringInput(ByVal StringOut As String)
 
@@ -135,9 +136,9 @@ Public Class Form1
             End If
         End If
 
-        If plotindex > 20 Then
+        If plotindex > plotscale Then
             Chart1.ChartAreas.Item(0).AxisX.IsStartedFromZero = False
-            Chart1.ChartAreas.Item(0).AxisX.Minimum = plotindex - 20
+            Chart1.ChartAreas.Item(0).AxisX.Minimum = plotindex - plotscale
         End If
 
     End Sub
@@ -371,4 +372,13 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub IncreaseScale_Click(sender As Object, e As EventArgs) Handles IncreaseScale.Click
+        plotscale = plotscale + 10
+    End Sub
+
+    Private Sub DecreaseScale_Click(sender As Object, e As EventArgs) Handles DecreaseScale.Click
+        If plotscale > 10 Then
+            plotscale = plotscale - 10
+        End If
+    End Sub
 End Class
