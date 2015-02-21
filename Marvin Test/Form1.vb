@@ -32,20 +32,30 @@ Public Class Form1
         RefreshRateBox.Text = 25
         NeutralAngleBox.Text = 0
 
-        For Each sp As String In My.Computer.Ports.SerialPortNames
+
+        Dim sp As String
+
+        For Each sp In My.Computer.Ports.SerialPortNames
             ComboBox1.Items.Add(sp)
         Next
-        ComboBox1.Text = ComboBox1.Items(1)
-        CheckBoxAngle.Checked = True
 
-        Chart1.Series.Item(0).Name = "Angle"
-        Chart1.Series.Item("Angle").ChartType = DataVisualization.Charting.SeriesChartType.Line
-        Chart1.Series.Add("JoyX")
-        Chart1.Series.Item("JoyX").ChartType = DataVisualization.Charting.SeriesChartType.Line
-        Chart1.Series.Item("JoyX").Enabled = False
-        Chart1.Series.Add("JoyY")
-        Chart1.Series.Item("JoyY").ChartType = DataVisualization.Charting.SeriesChartType.Line
-        Chart1.Series.Item("JoyY").Enabled = False
+        ComboBox1.Text = ComboBox1.Items(0)
+        CheckBoxAngle.Checked = True
+        CheckBoxJoyX.Checked = True
+        CheckBoxJoyY.Checked = True
+        CheckBox1.Checked = True
+
+        Chart1.Series.Item(0).Name = "XValues"
+        Chart1.Series.Item("XValues").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Add("YValues")
+        Chart1.Series.Item("YValues").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Item("YValues").Enabled = False
+        Chart1.Series.Add("ZValues")
+        Chart1.Series.Item("ZValues").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Item("ZValues").Enabled = False
+        Chart1.Series.Add("Shock")
+        Chart1.Series.Item("Shock").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Item("Shock").Enabled = False
 
     End Sub
 
@@ -68,7 +78,7 @@ Public Class Form1
         If (connected = False) Then
             Try
                 SerialPort1.PortName = ComboBox1.Text
-                SerialPort1.BaudRate = 115200
+                SerialPort1.BaudRate = 9600
                 SerialPort1.Open()
 
                 If IsNumeric(RefreshRateBox.Text) Then
@@ -112,9 +122,10 @@ Public Class Form1
         If StringOut.Contains(";") Then
             plotindex = plotindex + 1
             values = Split(StringOut, ";")
-            Me.Chart1.Series.Item("Angle").Points.AddXY(plotindex, values(2))
-            Me.Chart1.Series.Item("JoyX").Points.AddXY(plotindex, values(0))
-            Me.Chart1.Series.Item("JoyY").Points.AddXY(plotindex, values(1))
+            Me.Chart1.Series.Item("XValues").Points.AddXY(plotindex, values(0))
+            Me.Chart1.Series.Item("YValues").Points.AddXY(plotindex, values(1))
+            Me.Chart1.Series.Item("ZValues").Points.AddXY(plotindex, values(2))
+            Me.Chart1.Series.Item("Shock").Points.AddXY(plotindex, values(3))
             JoyStickTarget(values(0), values(1))
 
         ElseIf StringOut.Contains("P") Then
@@ -381,4 +392,12 @@ Public Class Form1
             plotscale = plotscale - 10
         End If
     End Sub
+
+    'Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+    '    If CheckBox1.Checked Then
+    '        Chart1.Series.Item(3).Enabled = True
+    '    Else
+    '        Chart1.Series.Item(3).Enabled = False
+    '    End If
+    'End Sub
 End Class
