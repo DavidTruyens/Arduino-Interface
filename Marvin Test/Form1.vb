@@ -40,10 +40,10 @@ Public Class Form1
         Next
 
         ComboBox1.Text = ComboBox1.Items(0)
-        CheckBoxAngle.Checked = True
-        CheckBoxJoyX.Checked = True
-        CheckBoxJoyY.Checked = True
-        CheckBox1.Checked = True
+        'CheckBoxAngle.Checked = True
+        'CheckBoxJoyX.Checked = True
+        'CheckBoxJoyY.Checked = True
+        'CheckBox1.Checked = True
 
         Chart1.Series.Item(0).Name = "XValues"
         Chart1.Series.Item("XValues").ChartType = DataVisualization.Charting.SeriesChartType.Line
@@ -126,6 +126,9 @@ Public Class Form1
             Me.Chart1.Series.Item("YValues").Points.AddXY(plotindex, values(1))
             Me.Chart1.Series.Item("ZValues").Points.AddXY(plotindex, values(2))
             Me.Chart1.Series.Item("Shock").Points.AddXY(plotindex, values(3))
+            If values(3) > 800 Then
+                MsgBox("Shock Alert!", MsgBoxStyle.Exclamation)
+            End If
             JoyStickTarget(values(0), values(1))
 
         ElseIf StringOut.Contains("P") Then
@@ -393,11 +396,11 @@ Public Class Form1
         End If
     End Sub
 
-    'Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-    '    If CheckBox1.Checked Then
-    '        Chart1.Series.Item(3).Enabled = True
-    '    Else
-    '        Chart1.Series.Item(3).Enabled = False
-    '    End If
-    'End Sub
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            Chart1.Series.Item(3).Enabled = True
+        Else
+            Chart1.Series.Item(3).Enabled = False
+        End If
+    End Sub
 End Class
