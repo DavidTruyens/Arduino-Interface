@@ -35,7 +35,7 @@ Public Class Form1
         For Each sp As String In My.Computer.Ports.SerialPortNames
             ComboBox1.Items.Add(sp)
         Next
-        ComboBox1.Text = ComboBox1.Items(1)
+        ComboBox1.Text = ComboBox1.Items(0)
         CheckBoxAngle.Checked = True
 
         Chart1.Series.Item(0).Name = "Angle"
