@@ -38,9 +38,8 @@ Partial Class Form1
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Plot = New System.Windows.Forms.Button()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.SerialPortList = New System.Windows.Forms.ComboBox()
         Me.CheckBoxAngle = New System.Windows.Forms.CheckBox()
-        Me.Connect = New System.Windows.Forms.Button()
         Me.IncrementBox = New System.Windows.Forms.TextBox()
         Me.Increment = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -58,6 +57,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.IncreaseScale = New System.Windows.Forms.Label()
         Me.DecreaseScale = New System.Windows.Forms.Label()
+        Me.SettingButton = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,10 +66,10 @@ Partial Class Form1
         'StartStopButton
         '
         Me.StartStopButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.StartStopButton.Location = New System.Drawing.Point(454, 52)
+        Me.StartStopButton.Location = New System.Drawing.Point(450, 27)
         Me.StartStopButton.Margin = New System.Windows.Forms.Padding(2)
         Me.StartStopButton.Name = "StartStopButton"
-        Me.StartStopButton.Size = New System.Drawing.Size(91, 20)
+        Me.StartStopButton.Size = New System.Drawing.Size(146, 20)
         Me.StartStopButton.TabIndex = 2
         Me.StartStopButton.Text = "Start"
         Me.StartStopButton.UseVisualStyleBackColor = True
@@ -77,10 +77,10 @@ Partial Class Form1
         'JoyStickButton
         '
         Me.JoyStickButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JoyStickButton.Location = New System.Drawing.Point(453, 77)
+        Me.JoyStickButton.Location = New System.Drawing.Point(450, 52)
         Me.JoyStickButton.Margin = New System.Windows.Forms.Padding(2)
         Me.JoyStickButton.Name = "JoyStickButton"
-        Me.JoyStickButton.Size = New System.Drawing.Size(91, 20)
+        Me.JoyStickButton.Size = New System.Drawing.Size(145, 20)
         Me.JoyStickButton.TabIndex = 3
         Me.JoyStickButton.Text = "Enable Joystick"
         Me.JoyStickButton.UseVisualStyleBackColor = True
@@ -115,7 +115,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(9, 11)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 15)
+        Me.Label1.Size = New System.Drawing.Size(50, 13)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "P - Value"
         '
@@ -125,7 +125,7 @@ Partial Class Form1
         Me.Label2.Location = New System.Drawing.Point(86, 11)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 15)
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "I - Value"
         '
@@ -135,7 +135,7 @@ Partial Class Form1
         Me.Label3.Location = New System.Drawing.Point(166, 11)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 15)
+        Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "D - Value"
         '
@@ -158,17 +158,17 @@ Partial Class Form1
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(556, 252)
+        Me.Chart1.Size = New System.Drawing.Size(607, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
         '
         'Plot
         '
         Me.Plot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Plot.Location = New System.Drawing.Point(453, 101)
+        Me.Plot.Location = New System.Drawing.Point(450, 76)
         Me.Plot.Margin = New System.Windows.Forms.Padding(2)
         Me.Plot.Name = "Plot"
-        Me.Plot.Size = New System.Drawing.Size(91, 20)
+        Me.Plot.Size = New System.Drawing.Size(145, 20)
         Me.Plot.TabIndex = 13
         Me.Plot.Text = "Plot"
         Me.Plot.UseVisualStyleBackColor = True
@@ -177,15 +177,15 @@ Partial Class Form1
         '
         Me.SerialPort1.PortName = "COM8"
         '
-        'ComboBox1
+        'SerialPortList
         '
-        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(454, 3)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(92, 21)
-        Me.ComboBox1.TabIndex = 16
+        Me.SerialPortList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SerialPortList.FormattingEnabled = True
+        Me.SerialPortList.Location = New System.Drawing.Point(450, 3)
+        Me.SerialPortList.Margin = New System.Windows.Forms.Padding(2)
+        Me.SerialPortList.Name = "SerialPortList"
+        Me.SerialPortList.Size = New System.Drawing.Size(147, 21)
+        Me.SerialPortList.TabIndex = 16
         '
         'CheckBoxAngle
         '
@@ -193,22 +193,10 @@ Partial Class Form1
         Me.CheckBoxAngle.Location = New System.Drawing.Point(12, 55)
         Me.CheckBoxAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxAngle.Name = "CheckBoxAngle"
-        Me.CheckBoxAngle.Size = New System.Drawing.Size(60, 19)
+        Me.CheckBoxAngle.Size = New System.Drawing.Size(53, 17)
         Me.CheckBoxAngle.TabIndex = 17
         Me.CheckBoxAngle.Text = "Angle"
         Me.CheckBoxAngle.UseVisualStyleBackColor = True
-        '
-        'Connect
-        '
-        Me.Connect.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Connect.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Connect.Location = New System.Drawing.Point(454, 28)
-        Me.Connect.Margin = New System.Windows.Forms.Padding(2)
-        Me.Connect.Name = "Connect"
-        Me.Connect.Size = New System.Drawing.Size(91, 20)
-        Me.Connect.TabIndex = 11
-        Me.Connect.Text = "Connect"
-        Me.Connect.UseVisualStyleBackColor = False
         '
         'IncrementBox
         '
@@ -224,7 +212,7 @@ Partial Class Form1
         Me.Increment.Location = New System.Drawing.Point(244, 77)
         Me.Increment.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Increment.Name = "Increment"
-        Me.Increment.Size = New System.Drawing.Size(62, 15)
+        Me.Increment.Size = New System.Drawing.Size(54, 13)
         Me.Increment.TabIndex = 19
         Me.Increment.Text = "Increment"
         '
@@ -271,7 +259,7 @@ Partial Class Form1
         Me.CheckBoxJoyX.Location = New System.Drawing.Point(12, 74)
         Me.CheckBoxJoyX.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxJoyX.Name = "CheckBoxJoyX"
-        Me.CheckBoxJoyX.Size = New System.Drawing.Size(55, 19)
+        Me.CheckBoxJoyX.Size = New System.Drawing.Size(49, 17)
         Me.CheckBoxJoyX.TabIndex = 22
         Me.CheckBoxJoyX.Text = "JoyX"
         Me.CheckBoxJoyX.UseVisualStyleBackColor = True
@@ -282,7 +270,7 @@ Partial Class Form1
         Me.CheckBoxJoyY.Location = New System.Drawing.Point(12, 95)
         Me.CheckBoxJoyY.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxJoyY.Name = "CheckBoxJoyY"
-        Me.CheckBoxJoyY.Size = New System.Drawing.Size(54, 19)
+        Me.CheckBoxJoyY.Size = New System.Drawing.Size(49, 17)
         Me.CheckBoxJoyY.TabIndex = 23
         Me.CheckBoxJoyY.Text = "JoyY"
         Me.CheckBoxJoyY.UseVisualStyleBackColor = True
@@ -299,7 +287,7 @@ Partial Class Form1
         Me.NAngle.AutoSize = True
         Me.NAngle.Location = New System.Drawing.Point(232, 11)
         Me.NAngle.Name = "NAngle"
-        Me.NAngle.Size = New System.Drawing.Size(81, 15)
+        Me.NAngle.Size = New System.Drawing.Size(71, 13)
         Me.NAngle.TabIndex = 25
         Me.NAngle.Text = "Neutral Angle"
         '
@@ -308,7 +296,7 @@ Partial Class Form1
         Me.RefreshRate.AutoSize = True
         Me.RefreshRate.Location = New System.Drawing.Point(166, 77)
         Me.RefreshRate.Name = "RefreshRate"
-        Me.RefreshRate.Size = New System.Drawing.Size(79, 15)
+        Me.RefreshRate.Size = New System.Drawing.Size(70, 13)
         Me.RefreshRate.TabIndex = 26
         Me.RefreshRate.Text = "Refresh Rate"
         '
@@ -322,10 +310,10 @@ Partial Class Form1
         'SaveValues
         '
         Me.SaveValues.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveValues.Location = New System.Drawing.Point(453, 125)
+        Me.SaveValues.Location = New System.Drawing.Point(450, 100)
         Me.SaveValues.Margin = New System.Windows.Forms.Padding(2)
         Me.SaveValues.Name = "SaveValues"
-        Me.SaveValues.Size = New System.Drawing.Size(91, 20)
+        Me.SaveValues.Size = New System.Drawing.Size(145, 20)
         Me.SaveValues.TabIndex = 28
         Me.SaveValues.Text = "Save PID Val"
         Me.SaveValues.UseVisualStyleBackColor = True
@@ -339,7 +327,7 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(9, 118)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(155, 15)
+        Me.Label4.Size = New System.Drawing.Size(132, 13)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Latest incomming data line"
         '
@@ -347,9 +335,9 @@ Partial Class Form1
         '
         Me.IncreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.IncreaseScale.AutoSize = True
-        Me.IncreaseScale.Location = New System.Drawing.Point(528, 385)
+        Me.IncreaseScale.Location = New System.Drawing.Point(579, 385)
         Me.IncreaseScale.Name = "IncreaseScale"
-        Me.IncreaseScale.Size = New System.Drawing.Size(14, 15)
+        Me.IncreaseScale.Size = New System.Drawing.Size(13, 13)
         Me.IncreaseScale.TabIndex = 30
         Me.IncreaseScale.Text = "+"
         '
@@ -357,18 +345,30 @@ Partial Class Form1
         '
         Me.DecreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DecreaseScale.AutoSize = True
-        Me.DecreaseScale.Location = New System.Drawing.Point(508, 385)
+        Me.DecreaseScale.Location = New System.Drawing.Point(559, 385)
         Me.DecreaseScale.Name = "DecreaseScale"
-        Me.DecreaseScale.Size = New System.Drawing.Size(11, 15)
+        Me.DecreaseScale.Size = New System.Drawing.Size(10, 13)
         Me.DecreaseScale.TabIndex = 31
         Me.DecreaseScale.Text = "-"
+        '
+        'SettingButton
+        '
+        Me.SettingButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SettingButton.Location = New System.Drawing.Point(450, 124)
+        Me.SettingButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.SettingButton.Name = "SettingButton"
+        Me.SettingButton.Size = New System.Drawing.Size(145, 28)
+        Me.SettingButton.TabIndex = 32
+        Me.SettingButton.Text = "Settings"
+        Me.SettingButton.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ClientSize = New System.Drawing.Size(554, 409)
+        Me.ClientSize = New System.Drawing.Size(605, 409)
+        Me.Controls.Add(Me.SettingButton)
         Me.Controls.Add(Me.DecreaseScale)
         Me.Controls.Add(Me.IncreaseScale)
         Me.Controls.Add(Me.Label4)
@@ -383,11 +383,10 @@ Partial Class Form1
         Me.Controls.Add(Me.Increment)
         Me.Controls.Add(Me.IncrementBox)
         Me.Controls.Add(Me.CheckBoxAngle)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.SerialPortList)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Plot)
         Me.Controls.Add(Me.Chart1)
-        Me.Controls.Add(Me.Connect)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -417,12 +416,11 @@ Partial Class Form1
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Connect As System.Windows.Forms.Button
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Plot As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents SerialPort1 As System.IO.Ports.SerialPort
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents SerialPortList As System.Windows.Forms.ComboBox
     Friend WithEvents CheckBoxAngle As System.Windows.Forms.CheckBox
     Friend WithEvents IncrementBox As System.Windows.Forms.TextBox
     Friend WithEvents Increment As System.Windows.Forms.Label
@@ -440,5 +438,5 @@ Partial Class Form1
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents IncreaseScale As System.Windows.Forms.Label
     Friend WithEvents DecreaseScale As System.Windows.Forms.Label
-
+    Friend WithEvents SettingButton As Button
 End Class

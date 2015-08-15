@@ -1,4 +1,5 @@
 ﻿Imports System
+Imports System.Management
 Imports System.IO.Ports
 Imports System.Threading
 Imports System.Windows.Forms.Form
@@ -32,10 +33,40 @@ Public Class Form1
         RefreshRateBox.Text = 25
         NeutralAngleBox.Text = 0
 
-        For Each sp As String In My.Computer.Ports.SerialPortNames
-            ComboBox1.Items.Add(sp)
+        Try
+            Dim searcher As New ManagementObjectSearcher("root\cimv2", "SELECT * FROM Win32_SerialPort")
+
+            For Each SerialPort As ManagementObject In searcher.Get()
+                SerialPortList.Items.Add(SerialPort("name"))
+            Next
+
+        Catch err As ManagementException
+            MessageBox.Show("An error occured while querying for WMI data: " & err.Message)
+
+        End Try
+
+        Dim arduino As Boolean = False
+
+        For Each item As Object In SerialPortList.Items
+
+            If item.ToString.Contains("Arduino") Then
+                SerialPortList.Text = item.ToString
+                arduino = True
+                Exit For
+            ElseIf item.ToString.Contains("Blu") Then
+                SerialPortList.Text = item.ToString
+                arduino = True
+                Exit For
+            End If
         Next
-        ComboBox1.Text = ComboBox1.Items(0)
+
+        If Not arduino Then
+            MsgBox("No Arduino can be found..")
+            'SerialPortList.Text = SerialPortList.Items.Item(0).ToString
+            Me.BackColor = Color.Orange
+
+        End If
+
         CheckBoxAngle.Checked = True
 
         Chart1.Series.Item(0).Name = "Angle"
@@ -63,40 +94,52 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
+    Public Sub serialconnect()
+        Dim portname As String
+        portname = "COM" & GetPortNumber()
 
-        If (connected = False) Then
+        If Not SerialPort1.IsOpen Then
             Try
-                SerialPort1.PortName = ComboBox1.Text
-                SerialPort1.BaudRate = 115200
+                SerialPort1.PortName = portname
+                SerialPort1.BaudRate = My.Settings.LatestBaudRate
                 SerialPort1.Open()
-
-                If IsNumeric(RefreshRateBox.Text) Then
-                    Timer1.Interval = CInt(RefreshRateBox.Text)
-                Else
-                    Timer1.Interval = 100
-                End If
-                Timer1.Start()
-                connected = True
-                Connect.BackColor = Color.Green
-                Connect.Text = "Connected!"
-
-                SerialPort1.WriteLine("a")
+                Me.BackColor = Color.Green
 
             Catch ex As Exception
-                Connect.BackColor = Color.Red
-                Connect.Text = "Error"
-                MsgBox("Connection error" & vbNewLine & "Make sure bluetooht is connected")
+                MsgBox("Arduino detected, but no connection could be made")
+                Me.BackColor = Color.Red
             End Try
-        Else
-            SerialPort1.Close()
-            connected = False
-            Connect.BackColor = Color.WhiteSmoke
-            Connect.Text = "Connect"
-            Timer1.Stop()
         End If
 
+        If IsNumeric(RefreshRateBox.Text) Then
+            Timer1.Interval = CInt(RefreshRateBox.Text)
+        Else
+            Timer1.Interval = 100
+        End If
+        Timer1.Start()
+
+        SerialPort1.WriteLine("a")
+
     End Sub
+
+    Private Sub serialclose()
+        If SerialPort1.IsOpen Then
+            SerialPort1.Close()
+            Timer1.Stop()
+        End If
+    End Sub
+
+    Private Function GetPortNumber() As String
+        Dim com As String = "COM"
+        Dim x As Integer = InStr(SerialPortList.Text, com)
+        Dim string_after As String = SerialPortList.Text.Substring(x + com.Length - 1)
+
+        Dim closingbracket As String = ")"
+        Dim y As Integer = InStr(string_after, closingbracket)
+        Dim portnumber As String = string_after.Substring(0, y - 1)
+
+        Return portnumber
+    End Function
 
     Private Sub SerialPort1_DataReceived(sender As Object, e As SerialDataReceivedEventArgs) Handles SerialPort1.DataReceived
         Dim StringOut As String
@@ -160,13 +203,12 @@ Public Class Form1
             MsgBox("Stop plotting before closing the application")
             e.Cancel = True
         Else
-            If connected Then
-                SerialPort1.Close()
-                connected = False
+            If SerialPort1.IsOpen Then
+                serialclose()
             End If
+
             SaveToFile()
         End If
-
 
     End Sub
 
@@ -380,5 +422,17 @@ Public Class Form1
         If plotscale > 10 Then
             plotscale = plotscale - 10
         End If
+    End Sub
+
+    Private Sub SettingButton_Click(sender As Object, e As EventArgs) Handles SettingButton.Click
+        SerialPort1.Close()
+        My.Forms.SettingsForm.Show()
+    End Sub
+
+    Private Sub SerialPortList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SerialPortList.SelectedIndexChanged
+        If SerialPort1.IsOpen Then
+            serialclose()
+        End If
+        serialconnect()
     End Sub
 End Class
