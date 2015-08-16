@@ -18,7 +18,8 @@
     End Sub
 
     Private Sub Settings_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-        MsgBox("Default BaudRate is set to: " & My.Settings.LatestBaudRate)
+        'MsgBox("Default BaudRate is set to: " & My.Settings.LatestBaudRate)
         My.Forms.Form1.serialconnect()
     End Sub
+
 End Class

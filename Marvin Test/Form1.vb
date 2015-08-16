@@ -33,17 +33,7 @@ Public Class Form1
         RefreshRateBox.Text = 25
         NeutralAngleBox.Text = 0
 
-        Try
-            Dim searcher As New ManagementObjectSearcher("root\cimv2", "SELECT * FROM Win32_SerialPort")
-
-            For Each SerialPort As ManagementObject In searcher.Get()
-                SerialPortList.Items.Add(SerialPort("name"))
-            Next
-
-        Catch err As ManagementException
-            MessageBox.Show("An error occured while querying for WMI data: " & err.Message)
-
-        End Try
+        SearchComPorts()
 
         Dim arduino As Boolean = False
 
@@ -78,6 +68,21 @@ Public Class Form1
         Chart1.Series.Item("JoyY").ChartType = DataVisualization.Charting.SeriesChartType.Line
         Chart1.Series.Item("JoyY").Enabled = False
 
+    End Sub
+
+    Private Sub SearchComPorts()
+        SerialPortList.Items.Clear()
+        Try
+            Dim searcher As New ManagementObjectSearcher("root\cimv2", "SELECT * FROM Win32_SerialPort")
+
+            For Each SerialPort As ManagementObject In searcher.Get()
+                SerialPortList.Items.Add(SerialPort("name"))
+            Next
+
+        Catch err As ManagementException
+            MessageBox.Show("An error occured while querying for WMI data: " & err.Message)
+
+        End Try
     End Sub
 
     Private Sub JoyStickButton_Click(sender As Object, e As EventArgs) Handles JoyStickButton.Click
@@ -434,5 +439,9 @@ Public Class Form1
             serialclose()
         End If
         serialconnect()
+    End Sub
+
+    Private Sub SerialPortList_DropDown(sender As Object, e As EventArgs) Handles SerialPortList.DropDown
+        SearchComPorts()
     End Sub
 End Class
