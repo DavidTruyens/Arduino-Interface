@@ -11,5 +11,11 @@
     <Setting Name="LatestBaudRate" Type="System.String" Scope="User">
       <Value Profile="(Default)">9600</Value>
     </Setting>
+    <Setting Name="PIDSampleTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="RefreshRate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

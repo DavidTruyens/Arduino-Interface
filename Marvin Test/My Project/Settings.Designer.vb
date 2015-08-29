@@ -89,6 +89,30 @@ Namespace My
                 Me("LatestBaudRate") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property PIDSampleTime() As String
+            Get
+                Return CType(Me("PIDSampleTime"),String)
+            End Get
+            Set
+                Me("PIDSampleTime") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
+        Public Property RefreshRate() As String
+            Get
+                Return CType(Me("RefreshRate"),String)
+            End Get
+            Set
+                Me("RefreshRate") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

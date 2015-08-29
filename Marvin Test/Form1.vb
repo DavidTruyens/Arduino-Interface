@@ -30,7 +30,6 @@ Public Class Form1
 
         My.Settings.BoxLayout = BoxPos
         IncrementBox.Text = 0.1
-        RefreshRateBox.Text = 25
         NeutralAngleBox.Text = 0
 
         SearchComPorts()
@@ -116,8 +115,8 @@ Public Class Form1
             End Try
         End If
 
-        If IsNumeric(RefreshRateBox.Text) Then
-            Timer1.Interval = CInt(RefreshRateBox.Text)
+        If IsNumeric(My.Forms.SettingsForm.RefreshRateSettings.Text) Then
+            Timer1.Interval = CInt(My.Forms.SettingsForm.RefreshRateSettings.Text)
         Else
             Timer1.Interval = 100
         End If
@@ -131,6 +130,7 @@ Public Class Form1
         If SerialPort1.IsOpen Then
             SerialPort1.Close()
             Timer1.Stop()
+            Me.BackColor = Color.Orange
         End If
     End Sub
 
@@ -181,6 +181,12 @@ Public Class Form1
             StringOut = StringOut.Replace("D", "")
             If IsNumeric(StringOut) Then
                 DBox.Text = StringOut
+            End If
+
+        ElseIf StringOut.Contains("C") Then
+            StringOut = StringOut.Replace("C", "")
+            If IsNumeric(StringOut) Then
+                My.Settings.PIDSampleTime = StringOut
             End If
         End If
 
@@ -430,7 +436,7 @@ Public Class Form1
     End Sub
 
     Private Sub SettingButton_Click(sender As Object, e As EventArgs) Handles SettingButton.Click
-        SerialPort1.Close()
+        serialclose()
         My.Forms.SettingsForm.Show()
     End Sub
 

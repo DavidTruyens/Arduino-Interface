@@ -50,8 +50,6 @@ Partial Class Form1
         Me.CheckBoxJoyY = New System.Windows.Forms.CheckBox()
         Me.NeutralAngleBox = New System.Windows.Forms.TextBox()
         Me.NAngle = New System.Windows.Forms.Label()
-        Me.RefreshRate = New System.Windows.Forms.Label()
-        Me.RefreshRateBox = New System.Windows.Forms.TextBox()
         Me.SaveValues = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -291,22 +289,6 @@ Partial Class Form1
         Me.NAngle.TabIndex = 25
         Me.NAngle.Text = "Neutral Angle"
         '
-        'RefreshRate
-        '
-        Me.RefreshRate.AutoSize = True
-        Me.RefreshRate.Location = New System.Drawing.Point(166, 77)
-        Me.RefreshRate.Name = "RefreshRate"
-        Me.RefreshRate.Size = New System.Drawing.Size(70, 13)
-        Me.RefreshRate.TabIndex = 26
-        Me.RefreshRate.Text = "Refresh Rate"
-        '
-        'RefreshRateBox
-        '
-        Me.RefreshRateBox.Location = New System.Drawing.Point(169, 94)
-        Me.RefreshRateBox.Name = "RefreshRateBox"
-        Me.RefreshRateBox.Size = New System.Drawing.Size(69, 20)
-        Me.RefreshRateBox.TabIndex = 27
-        '
         'SaveValues
         '
         Me.SaveValues.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -373,8 +355,6 @@ Partial Class Form1
         Me.Controls.Add(Me.IncreaseScale)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.SaveValues)
-        Me.Controls.Add(Me.RefreshRateBox)
-        Me.Controls.Add(Me.RefreshRate)
         Me.Controls.Add(Me.NAngle)
         Me.Controls.Add(Me.NeutralAngleBox)
         Me.Controls.Add(Me.CheckBoxJoyY)
@@ -431,8 +411,6 @@ Partial Class Form1
     Friend WithEvents CheckBoxJoyY As System.Windows.Forms.CheckBox
     Friend WithEvents NeutralAngleBox As System.Windows.Forms.TextBox
     Friend WithEvents NAngle As System.Windows.Forms.Label
-    Friend WithEvents RefreshRate As System.Windows.Forms.Label
-    Friend WithEvents RefreshRateBox As System.Windows.Forms.TextBox
     Friend WithEvents SaveValues As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Label4 As System.Windows.Forms.Label

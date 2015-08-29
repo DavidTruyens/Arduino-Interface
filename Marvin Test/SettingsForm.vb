@@ -1,7 +1,4 @@
 ﻿Public Class SettingsForm
-    Private Sub BaudRatesBox_TextChanged(sender As Object, e As EventArgs) Handles BaudRatesBox.TextChanged
-        My.Settings.LatestBaudRate = BaudRatesBox.Text
-    End Sub
 
     Private Sub Settings_Activated(sender As Object, e As EventArgs) Handles Me.Activated
 
@@ -15,6 +12,9 @@
         BaudRatesBox.Items.Add("115200")
         BaudRatesBox.Text = My.Settings.LatestBaudRate
 
+        RefreshRateSettings.Text = My.Settings.RefreshRate
+        SampleTimeBox.Text = My.Settings.PIDSampleTime
+
     End Sub
 
     Private Sub Settings_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -22,4 +22,25 @@
         My.Forms.Form1.serialconnect()
     End Sub
 
+    Private Sub BaudRatesBox_TextChanged(sender As Object, e As EventArgs) Handles BaudRatesBox.TextChanged
+        My.Settings.LatestBaudRate = BaudRatesBox.Text
+    End Sub
+
+    Private Sub RefreshRateSettings_TextChanged(sender As Object, e As EventArgs) Handles RefreshRateSettings.TextChanged
+        If Not RefreshRateSettings.Text = My.Settings.RefreshRate Then
+            If IsNumeric(RefreshRateSettings.Text) Then
+                My.Settings.RefreshRate = RefreshRateSettings.Text
+            End If
+        End If
+    End Sub
+
+    Private Sub SampleTimeBox_TextChanged(sender As Object, e As EventArgs) Handles SampleTimeBox.TextChanged
+        If Not SampleTimeBox.Text = My.Settings.PIDSampleTime Then
+            If IsNumeric(SampleTimeBox.Text) Then
+                My.Forms.Form1.SerialPort1.WriteLine("c")
+                My.Forms.Form1.SerialPort1.WriteLine("(" & RefreshRateSettings.Text & ")")
+                My.Settings.PIDSampleTime = SampleTimeBox.Text
+            End If
+        End If
+    End Sub
 End Class

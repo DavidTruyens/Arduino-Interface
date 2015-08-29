@@ -25,13 +25,15 @@ Partial Class SettingsForm
         Me.BaudRatesBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.RefreshRateSettings = New System.Windows.Forms.TextBox()
+        Me.SampleTimeBox = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BaudRatesBox
         '
         Me.BaudRatesBox.FormattingEnabled = True
-        Me.BaudRatesBox.Location = New System.Drawing.Point(88, 12)
+        Me.BaudRatesBox.Location = New System.Drawing.Point(120, 12)
         Me.BaudRatesBox.Name = "BaudRatesBox"
         Me.BaudRatesBox.Size = New System.Drawing.Size(121, 21)
         Me.BaudRatesBox.TabIndex = 0
@@ -54,19 +56,37 @@ Partial Class SettingsForm
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Refresh Rate"
         '
-        'TextBox1
+        'RefreshRateSettings
         '
-        Me.TextBox1.Location = New System.Drawing.Point(88, 47)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.RefreshRateSettings.Location = New System.Drawing.Point(120, 47)
+        Me.RefreshRateSettings.Name = "RefreshRateSettings"
+        Me.RefreshRateSettings.Size = New System.Drawing.Size(121, 20)
+        Me.RefreshRateSettings.TabIndex = 3
+        '
+        'SampleTimeBox
+        '
+        Me.SampleTimeBox.Location = New System.Drawing.Point(120, 81)
+        Me.SampleTimeBox.Name = "SampleTimeBox"
+        Me.SampleTimeBox.Size = New System.Drawing.Size(121, 20)
+        Me.SampleTimeBox.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 84)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(86, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "PID SampleTime"
         '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(235, 100)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(312, 127)
+        Me.Controls.Add(Me.SampleTimeBox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.RefreshRateSettings)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BaudRatesBox)
@@ -80,5 +100,7 @@ Partial Class SettingsForm
     Friend WithEvents BaudRatesBox As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents RefreshRateSettings As TextBox
+    Friend WithEvents SampleTimeBox As TextBox
+    Friend WithEvents Label3 As Label
 End Class
