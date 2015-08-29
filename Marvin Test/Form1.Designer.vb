@@ -43,7 +43,6 @@ Partial Class Form1
         Me.IncrementBox = New System.Windows.Forms.TextBox()
         Me.Increment = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.CMDLine = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.CheckBoxJoyX = New System.Windows.Forms.CheckBox()
@@ -56,6 +55,13 @@ Partial Class Form1
         Me.IncreaseScale = New System.Windows.Forms.Label()
         Me.DecreaseScale = New System.Windows.Forms.Label()
         Me.SettingButton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.KalmanBox = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.PosPropBox = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PosDifBox = New System.Windows.Forms.TextBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,7 +73,7 @@ Partial Class Form1
         Me.StartStopButton.Location = New System.Drawing.Point(450, 27)
         Me.StartStopButton.Margin = New System.Windows.Forms.Padding(2)
         Me.StartStopButton.Name = "StartStopButton"
-        Me.StartStopButton.Size = New System.Drawing.Size(146, 20)
+        Me.StartStopButton.Size = New System.Drawing.Size(151, 20)
         Me.StartStopButton.TabIndex = 2
         Me.StartStopButton.Text = "Start"
         Me.StartStopButton.UseVisualStyleBackColor = True
@@ -78,7 +84,7 @@ Partial Class Form1
         Me.JoyStickButton.Location = New System.Drawing.Point(450, 52)
         Me.JoyStickButton.Margin = New System.Windows.Forms.Padding(2)
         Me.JoyStickButton.Name = "JoyStickButton"
-        Me.JoyStickButton.Size = New System.Drawing.Size(145, 20)
+        Me.JoyStickButton.Size = New System.Drawing.Size(150, 20)
         Me.JoyStickButton.TabIndex = 3
         Me.JoyStickButton.Text = "Enable Joystick"
         Me.JoyStickButton.UseVisualStyleBackColor = True
@@ -156,7 +162,7 @@ Partial Class Form1
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(607, 252)
+        Me.Chart1.Size = New System.Drawing.Size(612, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
         '
@@ -166,7 +172,7 @@ Partial Class Form1
         Me.Plot.Location = New System.Drawing.Point(450, 76)
         Me.Plot.Margin = New System.Windows.Forms.Padding(2)
         Me.Plot.Name = "Plot"
-        Me.Plot.Size = New System.Drawing.Size(145, 20)
+        Me.Plot.Size = New System.Drawing.Size(150, 20)
         Me.Plot.TabIndex = 13
         Me.Plot.Text = "Plot"
         Me.Plot.UseVisualStyleBackColor = True
@@ -178,11 +184,12 @@ Partial Class Form1
         'SerialPortList
         '
         Me.SerialPortList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SerialPortList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SerialPortList.FormattingEnabled = True
         Me.SerialPortList.Location = New System.Drawing.Point(450, 3)
         Me.SerialPortList.Margin = New System.Windows.Forms.Padding(2)
         Me.SerialPortList.Name = "SerialPortList"
-        Me.SerialPortList.Size = New System.Drawing.Size(147, 21)
+        Me.SerialPortList.Size = New System.Drawing.Size(151, 21)
         Me.SerialPortList.TabIndex = 16
         '
         'CheckBoxAngle
@@ -198,7 +205,7 @@ Partial Class Form1
         '
         'IncrementBox
         '
-        Me.IncrementBox.Location = New System.Drawing.Point(246, 94)
+        Me.IncrementBox.Location = New System.Drawing.Point(246, 107)
         Me.IncrementBox.Margin = New System.Windows.Forms.Padding(2)
         Me.IncrementBox.Name = "IncrementBox"
         Me.IncrementBox.Size = New System.Drawing.Size(57, 20)
@@ -207,7 +214,7 @@ Partial Class Form1
         'Increment
         '
         Me.Increment.AutoSize = True
-        Me.Increment.Location = New System.Drawing.Point(244, 77)
+        Me.Increment.Location = New System.Drawing.Point(244, 90)
         Me.Increment.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Increment.Name = "Increment"
         Me.Increment.Size = New System.Drawing.Size(54, 13)
@@ -225,20 +232,6 @@ Partial Class Form1
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 20
         Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Marvin_Test.My.MySettings.Default, "ImagePOS", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = Global.Marvin_Test.My.MySettings.Default.ImagePOS
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(15, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 14
-        Me.PictureBox1.TabStop = False
         '
         'CMDLine
         '
@@ -295,7 +288,7 @@ Partial Class Form1
         Me.SaveValues.Location = New System.Drawing.Point(450, 100)
         Me.SaveValues.Margin = New System.Windows.Forms.Padding(2)
         Me.SaveValues.Name = "SaveValues"
-        Me.SaveValues.Size = New System.Drawing.Size(145, 20)
+        Me.SaveValues.Size = New System.Drawing.Size(150, 20)
         Me.SaveValues.TabIndex = 28
         Me.SaveValues.Text = "Save PID Val"
         Me.SaveValues.UseVisualStyleBackColor = True
@@ -317,7 +310,7 @@ Partial Class Form1
         '
         Me.IncreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.IncreaseScale.AutoSize = True
-        Me.IncreaseScale.Location = New System.Drawing.Point(579, 385)
+        Me.IncreaseScale.Location = New System.Drawing.Point(584, 385)
         Me.IncreaseScale.Name = "IncreaseScale"
         Me.IncreaseScale.Size = New System.Drawing.Size(13, 13)
         Me.IncreaseScale.TabIndex = 30
@@ -327,7 +320,7 @@ Partial Class Form1
         '
         Me.DecreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DecreaseScale.AutoSize = True
-        Me.DecreaseScale.Location = New System.Drawing.Point(559, 385)
+        Me.DecreaseScale.Location = New System.Drawing.Point(564, 385)
         Me.DecreaseScale.Name = "DecreaseScale"
         Me.DecreaseScale.Size = New System.Drawing.Size(10, 13)
         Me.DecreaseScale.TabIndex = 31
@@ -339,17 +332,91 @@ Partial Class Form1
         Me.SettingButton.Location = New System.Drawing.Point(450, 124)
         Me.SettingButton.Margin = New System.Windows.Forms.Padding(2)
         Me.SettingButton.Name = "SettingButton"
-        Me.SettingButton.Size = New System.Drawing.Size(145, 28)
+        Me.SettingButton.Size = New System.Drawing.Size(150, 28)
         Me.SettingButton.TabIndex = 32
         Me.SettingButton.Text = "Settings"
         Me.SettingButton.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Marvin_Test.My.MySettings.Default, "ImagePOS", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = Global.Marvin_Test.My.MySettings.Default.ImagePOS
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(15, 16)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 14
+        Me.PictureBox1.TabStop = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(165, 90)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(67, 13)
+        Me.Label5.TabIndex = 34
+        Me.Label5.Text = "Kalman-Filter"
+        '
+        'KalmanBox
+        '
+        Me.KalmanBox.Location = New System.Drawing.Point(165, 107)
+        Me.KalmanBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.KalmanBox.Name = "KalmanBox"
+        Me.KalmanBox.Size = New System.Drawing.Size(76, 20)
+        Me.KalmanBox.TabIndex = 33
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(167, 50)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(50, 13)
+        Me.Label6.TabIndex = 36
+        Me.Label6.Text = "Pos-Prop"
+        '
+        'PosPropBox
+        '
+        Me.PosPropBox.Location = New System.Drawing.Point(168, 65)
+        Me.PosPropBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.PosPropBox.Name = "PosPropBox"
+        Me.PosPropBox.Size = New System.Drawing.Size(61, 20)
+        Me.PosPropBox.TabIndex = 35
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(233, 50)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(41, 13)
+        Me.Label7.TabIndex = 38
+        Me.Label7.Text = "Pos-Dif"
+        '
+        'PosDifBox
+        '
+        Me.PosDifBox.Location = New System.Drawing.Point(235, 65)
+        Me.PosDifBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.PosDifBox.Name = "PosDifBox"
+        Me.PosDifBox.Size = New System.Drawing.Size(71, 20)
+        Me.PosDifBox.TabIndex = 37
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ClientSize = New System.Drawing.Size(605, 409)
+        Me.ClientSize = New System.Drawing.Size(610, 409)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.PosDifBox)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.PosPropBox)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.KalmanBox)
         Me.Controls.Add(Me.SettingButton)
         Me.Controls.Add(Me.DecreaseScale)
         Me.Controls.Add(Me.IncreaseScale)
@@ -417,4 +484,10 @@ Partial Class Form1
     Friend WithEvents IncreaseScale As System.Windows.Forms.Label
     Friend WithEvents DecreaseScale As System.Windows.Forms.Label
     Friend WithEvents SettingButton As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents KalmanBox As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents PosPropBox As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PosDifBox As TextBox
 End Class

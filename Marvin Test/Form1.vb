@@ -32,29 +32,31 @@ Public Class Form1
         IncrementBox.Text = 0.1
         NeutralAngleBox.Text = 0
 
-        SearchComPorts()
+        SerialPortList.DropDownWidth = 300
 
-        Dim arduino As Boolean = False
+        'SearchComPorts()
 
-        For Each item As Object In SerialPortList.Items
+        'Dim arduino As Boolean = False
 
-            If item.ToString.Contains("Arduino") Then
-                SerialPortList.Text = item.ToString
-                arduino = True
-                Exit For
-            ElseIf item.ToString.Contains("Blu") Then
-                SerialPortList.Text = item.ToString
-                arduino = True
-                Exit For
-            End If
-        Next
+        'For Each item As Object In SerialPortList.Items
 
-        If Not arduino Then
-            MsgBox("No Arduino can be found..")
-            'SerialPortList.Text = SerialPortList.Items.Item(0).ToString
-            Me.BackColor = Color.Orange
+        '    If item.ToString.Contains("Arduino") Then
+        '        SerialPortList.Text = item.ToString
+        '        arduino = True
+        '        Exit For
+        '    ElseIf item.ToString.Contains("Blu") Then
+        '        SerialPortList.Text = item.ToString
+        '        arduino = True
+        '        Exit For
+        '    End If
+        'Next
 
-        End If
+        'If Not arduino Then
+        '    MsgBox("No Arduino can be found..")
+        '    'SerialPortList.Text = SerialPortList.Items.Item(0).ToString
+        '    Me.BackColor = Color.Orange
+
+        'End If
 
         CheckBoxAngle.Checked = True
 
@@ -188,6 +190,24 @@ Public Class Form1
             If IsNumeric(StringOut) Then
                 My.Settings.PIDSampleTime = StringOut
             End If
+
+        ElseIf StringOut.Contains("T") Then
+            StringOut = StringOut.Replace("T", "")
+            If IsNumeric(StringOut) Then
+                PosPropBox.Text = StringOut
+            End If
+
+        ElseIf StringOut.Contains("U") Then
+            StringOut = StringOut.Replace("U", "")
+            If IsNumeric(StringOut) Then
+                PosDifBox.Text = StringOut
+            End If
+
+        ElseIf StringOut.Contains("K") Then
+            StringOut = StringOut.Replace("K", "")
+            If IsNumeric(StringOut) Then
+                KalmanBox.Text = StringOut
+            End If
         End If
 
         If plotindex > plotscale Then
@@ -298,6 +318,106 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub IBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles IBox.MouseWheel
+        Dim NewIValue As Double
+        Dim increment As Double = 1
+
+        If IsNumeric(IncrementBox.Text) Then
+            increment = CDbl(IncrementBox.Text)
+        End If
+
+        If e.Delta > 0 Then
+            If IsNumeric(IBox.Text) Then
+                NewIValue = CDbl(IBox.Text)
+                IBox.Text = NewIValue + increment
+                SerialPort1.WriteLine("i")
+                SerialPort1.WriteLine("(" & IBox.Text & ")")
+            End If
+        ElseIf e.Delta < 0 Then
+            If IsNumeric(IBox.Text) Then
+                NewIValue = CDbl(IBox.Text)
+                IBox.Text = NewIValue - increment
+                SerialPort1.WriteLine("i")
+                SerialPort1.WriteLine("(" & IBox.Text & ")")
+            End If
+        End If
+    End Sub
+
+    Private Sub PosPropBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles PosPropBox.MouseWheel
+        Dim NewPosPropValue As Double
+        Dim increment As Double = 1
+
+        If IsNumeric(IncrementBox.Text) Then
+            increment = CDbl(IncrementBox.Text)
+        End If
+
+        If e.Delta > 0 Then
+            If IsNumeric(PosPropBox.Text) Then
+                NewPosPropValue = CDbl(PosPropBox.Text)
+                PosPropBox.Text = NewPosPropValue + increment
+                SerialPort1.WriteLine("t")
+                SerialPort1.WriteLine("(" & PosPropBox.Text & ")")
+            End If
+        ElseIf e.Delta < 0 Then
+            If IsNumeric(PosPropBox.Text) Then
+                NewPosPropValue = CDbl(PosPropBox.Text)
+                PosPropBox.Text = NewPosPropValue - increment
+                SerialPort1.WriteLine("t")
+                SerialPort1.WriteLine("(" & PosPropBox.Text & ")")
+            End If
+        End If
+    End Sub
+
+    Private Sub PosDifBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles PosDifBox.MouseWheel
+        Dim NewPosDifValue As Double
+        Dim increment As Double = 1
+
+        If IsNumeric(IncrementBox.Text) Then
+            increment = CDbl(IncrementBox.Text)
+        End If
+
+        If e.Delta > 0 Then
+            If IsNumeric(PosDifBox.Text) Then
+                NewPosDifValue = CDbl(PosDifBox.Text)
+                PosDifBox.Text = NewPosDifValue + increment
+                SerialPort1.WriteLine("u")
+                SerialPort1.WriteLine("(" & PosDifBox.Text & ")")
+            End If
+        ElseIf e.Delta < 0 Then
+            If IsNumeric(IBox.Text) Then
+                NewPosDifValue = CDbl(PosDifBox.Text)
+                PosDifBox.Text = NewPosDifValue - increment
+                SerialPort1.WriteLine("u")
+                SerialPort1.WriteLine("(" & PosDifBox.Text & ")")
+            End If
+        End If
+    End Sub
+
+    Private Sub KalmanBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles KalmanBox.MouseWheel
+        Dim NewKalmanValue As Double
+        Dim increment As Double = 1
+
+        If IsNumeric(IncrementBox.Text) Then
+            increment = CDbl(IncrementBox.Text)
+        End If
+
+        If e.Delta > 0 Then
+            If IsNumeric(KalmanBox.Text) Then
+                NewKalmanValue = CDbl(KalmanBox.Text)
+                KalmanBox.Text = NewKalmanValue + increment
+                SerialPort1.WriteLine("k")
+                SerialPort1.WriteLine("(" & KalmanBox.Text & ")")
+            End If
+        ElseIf e.Delta < 0 Then
+            If IsNumeric(KalmanBox.Text) Then
+                NewKalmanValue = CDbl(KalmanBox.Text)
+                KalmanBox.Text = NewKalmanValue - increment
+                SerialPort1.WriteLine("k")
+                SerialPort1.WriteLine("(" & KalmanBox.Text & ")")
+            End If
+        End If
+    End Sub
+
     Private Sub NeutralAngleBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles NeutralAngleBox.MouseWheel
         Dim NValue As Double
         Dim increment As Double
@@ -351,31 +471,6 @@ Public Class Form1
 
     Private Sub SaveValues_Click(sender As Object, e As EventArgs) Handles SaveValues.Click
         SerialPort1.WriteLine("z")
-    End Sub
-
-    Private Sub IBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles IBox.MouseWheel
-        Dim NewIValue As Double
-        Dim increment As Double = 1
-
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
-
-        If e.Delta > 0 Then
-            If IsNumeric(IBox.Text) Then
-                NewIValue = CDbl(IBox.Text)
-                IBox.Text = NewIValue + increment
-                SerialPort1.WriteLine("i")
-                SerialPort1.WriteLine("(" & IBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(IBox.Text) Then
-                NewIValue = CDbl(IBox.Text)
-                IBox.Text = NewIValue - increment
-                SerialPort1.WriteLine("i")
-                SerialPort1.WriteLine("(" & IBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub SaveToFile()
@@ -450,4 +545,6 @@ Public Class Form1
     Private Sub SerialPortList_DropDown(sender As Object, e As EventArgs) Handles SerialPortList.DropDown
         SearchComPorts()
     End Sub
+
+
 End Class
