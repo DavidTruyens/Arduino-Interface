@@ -5,6 +5,9 @@ void calibrateMotor() {
 
   Serial.println(F("Estimating minimum starting value. When the first two values do not change anymore, then send any character to continue\r\n"));
   delay(2000);
+
+  minSpeed();
+
   double leftSpeed = 10, rightSpeed = 10;
   testMotorSpeed(&leftSpeed, &rightSpeed, 1, 1);
 
@@ -23,8 +26,10 @@ void calibrateMotor() {
 
   Serial.print(F("The motor scalars are now (L/R): "));
   Serial.print(leftMotorScalerFwd);
-  Serial.print(F(","));
+  Serial.print(F(", "));
   Serial.println(rightMotorScalerFwd);
+
+  SaveCalibrationValues();
 
   Serial.println(F("Now the motors will spin up again. Now the speed values should be almost equal. Send any character to exit\r\n"));
   delay(2000);
@@ -38,10 +43,78 @@ void calibrateMotor() {
   Serial.print((maxSpeed - minSpeed) / maxSpeed * 100);
   Serial.println("%");
 
-  SaveCalibrationValues();
+  
   calibrateMotors = false;
   Serial.println(F("Calibration of the motors is done"));
 }
+
+void minSpeed() {
+	boolean leftmovement = false;
+	boolean rightmovement = false;
+	double initialSpeed = 0;
+	EncoderReading();
+	int32_t lastRightPosition = positionRight;
+	int32_t lastLeftPosition = positionLeft;
+
+	while (!rightmovement) {
+		initialSpeed += 0.1;
+		md.setM1Speed(initialSpeed);
+		delay(100);
+		EncoderReading();
+		int32_t rightPosition = positionRight;
+		int32_t rightVelocity = rightPosition - lastRightPosition;
+		lastRightPosition = rightPosition;
+		Serial.print(rightPosition);
+		Serial.print(", ");
+		Serial.print(rightVelocity);
+		Serial.print(F(","));
+		Serial.println(initialSpeed);
+		if (rightVelocity != 0) {
+			rightmovement = true;
+			minSpeedRight = initialSpeed;
+			Serial.print("Right minimum speed is: ");
+			Serial.print(minSpeedRight);
+			Serial.println("Press a button to continue");
+			md.setM1Speed(0);
+		}
+	}
+	while (Serial.read() == -1) {};
+	
+	initialSpeed = 0;
+	
+	while (!leftmovement) {
+		initialSpeed += 0.1;
+		md.setM2Speed(initialSpeed);
+		delay(100);
+		EncoderReading();
+		int32_t leftPosition = positionLeft;
+		int32_t leftVelocity = leftPosition - lastLeftPosition;
+		lastLeftPosition = leftPosition;
+		Serial.print(leftPosition);
+		Serial.print(", ");
+		Serial.print(leftVelocity);
+		Serial.print(F(","));
+		Serial.println(initialSpeed);
+		if (leftVelocity != 0) {
+			leftmovement = true;
+			minSpeedLeft = initialSpeed;
+			Serial.print("Left minimum speed is: ");
+			Serial.print(minSpeedLeft);
+			Serial.println("Press a button to continue");
+			md.setM2Speed(0);
+		}
+	}
+	while (Serial.read() == -1) {
+		md.setM1Speed(minSpeedRight);
+		md.setM2Speed(minSpeedLeft);
+
+	};
+	
+	md.setM1Speed(0);
+	md.setM2Speed(0);
+		
+}
+
 
 void testMotorSpeed(double *leftSpeed, double *rightSpeed, double leftScaler, double rightScaler) {
   EncoderReading();

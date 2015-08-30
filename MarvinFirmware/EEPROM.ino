@@ -21,9 +21,14 @@ void GetValues() {
 void SaveCalibrationValues() {
   EEPROM.writeDouble(90, leftMotorScalerFwd);
   EEPROM.writeDouble(100, rightMotorScalerFwd);
+  EEPROM.writeDouble(110, minSpeedRight);
+  EEPROM.writeDouble(120, minSpeedLeft);
 }
 
-void SetCalibrationValues(){
+void GetCalibrationValues(){
   leftMotorScalerFwd = EEPROM.readDouble(90);
   rightMotorScalerFwd = EEPROM.readDouble(100);
+  minSpeedRight = EEPROM.readDouble(110);
+  minSpeedLeft = EEPROM.readDouble(120);
+
 }

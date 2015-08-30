@@ -46,6 +46,8 @@ double leftMotorScalerFwd;
 double rightMotorScalerFwd;
 double leftMotorScalerRwd;
 double rightMotorScalerRwd;
+double minSpeedRight;
+double minSpeedLeft;
 
 void setup()
 {
@@ -54,7 +56,7 @@ void setup()
 
   MPUSetup();
   GetValues();
-  SetCalibrationValues();
+  GetCalibrationValues();
 
   Serial.println ("Welcome to Marvin!");
   Serial.println ("Press m for Menu");
@@ -70,8 +72,6 @@ void loop()
   angleSum = angleSum + angle_y;
 
   EncoderReading();
-
-
 
   if (start && joystick) {
     PID (angleXJoy, angleYJoy);

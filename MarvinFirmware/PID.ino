@@ -53,6 +53,27 @@ void PID(int XJoy, int YJoy) {
   {
     Motor1Speed = (MainSpeed - PropSteering * (angleXJoy - 50))*rightMotorScalerFwd;
     Motor2Speed = (MainSpeed + PropSteering * (angleXJoy - 50))*leftMotorScalerFwd;
+
+	if (Motor1Speed > 0) {
+		Motor1Speed = Motor1Speed + minSpeedRight;
+	}
+	else if (Motor1Speed < 0) {
+		Motor1Speed = Motor1Speed - minSpeedRight;
+	}
+	else {
+		Motor1Speed = 0;
+	}
+	
+	if (Motor2Speed > 0) {
+		Motor2Speed = Motor2Speed + minSpeedLeft;
+	}
+	else if (Motor2Speed < 0) {
+		Motor2Speed = Motor2Speed - minSpeedLeft;
+	}
+	else {
+		Motor2Speed = 0;
+	}
+
     md.setM1Speed (Motor1Speed);
     md.setM2Speed (Motor2Speed);
     stopIfFault();

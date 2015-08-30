@@ -45,10 +45,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;C:\Users\David\Source\Repos\Arduino-Interface\MarvinFirmware;C:\Program Files (x86)\Arduino\libraries\EEPROMEx;C:\Program Files (x86)\Arduino\libraries\EEPROMEx\utility;C:\Program Files (x86)\Arduino\libraries\Encoder;C:\Program Files (x86)\Arduino\libraries\Encoder\utility;C:\Program Files (x86)\Arduino\libraries\VHN5019;C:\Program Files (x86)\Arduino\libraries\VHN5019\utility;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\vcqqu3sl.wte\Micro Platforms\default\debuggers;C:\Users\David\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\tools\avr/avr/include/;C:\Program Files (x86)\Arduino\hardware\tools\avr//avr/include/avr/;C:\Program Files (x86)\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;C:\Users\David\Source\Repos\Arduino-Interface\MarvinFirmware;C:\Program Files (x86)\Arduino\libraries\EEPROMEx;C:\Program Files (x86)\Arduino\libraries\EEPROMEx\utility;C:\Program Files (x86)\Arduino\libraries\Encoder;C:\Program Files (x86)\Arduino\libraries\Encoder\utility;C:\Program Files (x86)\Arduino\libraries\VHN5019;C:\Program Files (x86)\Arduino\libraries\VHN5019\utility;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\vcqqu3sl.wte\Micro Platforms\default\debuggers;C:\Users\David\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;C:\Program Files (x86)\Arduino\libraries\EEPROMEx;C:\Program Files (x86)\Arduino\libraries\Encoder;C:\Program Files (x86)\Arduino\libraries\VHN5019;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\vcqqu3sl.wte\Micro Platforms\default\debuggers\VM_DBG;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\vcqqu3sl.wte\Micro Platforms\default\debuggers;C:\Users\David\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\libraries\Encoder\utility;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\utility;C:\Program Files (x86)\Arduino\hardware\tools\avr/avr/include/;C:\Program Files (x86)\Arduino\hardware\tools\avr//avr/include/avr/;C:\Program Files (x86)\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\David\Source\Repos\Arduino-Interface\MarvinFirmware\Visual Micro\.MarvinFirmware.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>__AVR_ATmega2560__;F_CPU=16000000L;ARDUINO=165;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=165;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -100,4 +100,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.upload.port="COM20" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

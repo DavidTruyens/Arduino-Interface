@@ -41,6 +41,7 @@ void SerialCom() {
         Serial.println ("Press y to enable or disable JoyStick control");
         Serial.println ("Press z to store PID values");
         Serial.println ("Press c to calibrate motors");
+		// e, f, g and h are used to print the calibration values. Not yet used: j l o q r v w
         inByte = 0;
         break;
 

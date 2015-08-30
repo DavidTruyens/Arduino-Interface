@@ -17,18 +17,26 @@ void PrintPIDValues(){
   Serial2.print("U");
   Serial2.println(PosDif,4);
   delay(100);
-  Serial.print("P");
+  Serial.print("Prop value: ");
   Serial.println(Prop,4);
-  Serial.print("D");
+  Serial.print("Dif value: ");
   Serial.println(Dif,4);
-  Serial.print("I");
+  Serial.print("Int value: ");
   Serial.println(Int,4);
-  Serial.print("K");
+  Serial.print("Kalman value: ");
   Serial.println(Kalman,4);
-  Serial.print("T");
+  Serial.print("PosProp value: ");
   Serial.println(PosProp,4);
-  Serial.print("U");
+  Serial.print("PosDif value: ");
   Serial.println(PosDif,4);
+  Serial.print("leftMotorScalerFwd: ");
+  Serial.println(leftMotorScalerFwd);
+  Serial.print("rightMotorScalerFwd: ");
+  Serial.println(rightMotorScalerFwd);
+  Serial.print("minSpeedRight: ");
+  Serial.println(minSpeedRight);
+  Serial.print("minSpeedLeft: ");
+  Serial.println(minSpeedLeft);
   }
     
 void PrintApp(){
