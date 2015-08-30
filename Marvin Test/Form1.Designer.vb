@@ -68,6 +68,8 @@ Partial Class Form1
         Me.AggPropBox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.AggDifBox = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.FuzzyTransBox = New System.Windows.Forms.TextBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -465,12 +467,32 @@ Partial Class Form1
         Me.AggDifBox.Size = New System.Drawing.Size(71, 20)
         Me.AggDifBox.TabIndex = 43
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(150, 87)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(64, 13)
+        Me.Label11.TabIndex = 46
+        Me.Label11.Text = "Fuzzy Trans"
+        '
+        'FuzzyTransBox
+        '
+        Me.FuzzyTransBox.Location = New System.Drawing.Point(152, 102)
+        Me.FuzzyTransBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.FuzzyTransBox.Name = "FuzzyTransBox"
+        Me.FuzzyTransBox.Size = New System.Drawing.Size(71, 20)
+        Me.FuzzyTransBox.TabIndex = 45
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(722, 409)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.FuzzyTransBox)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.AggDifBox)
         Me.Controls.Add(Me.Label9)
@@ -562,4 +584,6 @@ Partial Class Form1
     Friend WithEvents AggPropBox As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents AggDifBox As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents FuzzyTransBox As TextBox
 End Class

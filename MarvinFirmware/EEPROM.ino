@@ -9,6 +9,8 @@ void SaveValues() {
   EEPROM.writeDouble(130, MaxTargetAngle);
   EEPROM.writeDouble(140, AggProp);
   EEPROM.writeDouble(150, AggDif);
+  EEPROM.writeDouble(160, FuzzyTransition);
+
   Serial.println ("Values Stored!");
 }
 
@@ -22,6 +24,7 @@ void GetValues() {
   MaxTargetAngle = EEPROM.readDouble(130);
   AggProp = EEPROM.readDouble(140);
   AggDif = EEPROM.readDouble(150);
+  FuzzyTransition = EEPROM.readDouble(160);
 }
 
 void SaveCalibrationValues() {

@@ -171,43 +171,36 @@ Public Class Form1
             Me.Chart1.Series.Item("JoyX").Points.AddXY(plotindex, values(0))
             Me.Chart1.Series.Item("JoyY").Points.AddXY(plotindex, values(1))
             JoyStickTarget(values(0), values(1))
-
         ElseIf StringOut.Contains("P") Then
             StringOut = StringOut.Replace("P", "")
             If IsNumeric(StringOut) Then
                 PBox.Text = StringOut
             End If
-
         ElseIf StringOut.Contains("I") Then
             StringOut = StringOut.Replace("I", "")
             If IsNumeric(StringOut) Then
                 IBox.Text = StringOut
             End If
-
         ElseIf StringOut.Contains("D") Then
             StringOut = StringOut.Replace("D", "")
             If IsNumeric(StringOut) Then
                 DBox.Text = StringOut
             End If
-
         ElseIf StringOut.Contains("C") Then
             StringOut = StringOut.Replace("C", "")
             If IsNumeric(StringOut) Then
                 My.Settings.PIDSampleTime = StringOut
             End If
-
         ElseIf StringOut.Contains("T") Then
             StringOut = StringOut.Replace("T", "")
             If IsNumeric(StringOut) Then
                 PosPropBox.Text = StringOut
             End If
-
         ElseIf StringOut.Contains("U") Then
             StringOut = StringOut.Replace("U", "")
             If IsNumeric(StringOut) Then
                 PosDifBox.Text = StringOut
             End If
-
         ElseIf StringOut.Contains("K") Then
             StringOut = StringOut.Replace("K", "")
             If IsNumeric(StringOut) Then
@@ -228,9 +221,11 @@ Public Class Form1
             If IsNumeric(StringOut) Then
                 AggDifBox.Text = StringOut
             End If
-
-
-
+        ElseIf StringOut.Contains("R") Then
+            StringOut = StringOut.Replace("R", "")
+            If IsNumeric(StringOut) Then
+                FuzzyTransBox.Text = StringOut
+            End If
         End If
 
         If plotindex > plotscale Then
@@ -344,6 +339,10 @@ Public Class Form1
 
     Private Sub AggDifBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles AggDifBox.MouseWheel
         BoxValueChange("o", AggDifBox, e.Delta)
+    End Sub
+
+    Private Sub FuzzyTransBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles FuzzyTransBox.MouseWheel
+        BoxValueChange("r", FuzzyTransBox, e.Delta)
     End Sub
 
     Private Sub BoxValueChange(ByVal menuletter As String, ByVal boxname As Windows.Forms.TextBox, mousewheel As Integer)
@@ -473,5 +472,6 @@ Public Class Form1
         serialclose()
         SearchComPorts()
     End Sub
+
 
 End Class
