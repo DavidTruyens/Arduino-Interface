@@ -19,6 +19,7 @@ void PID(int XJoy, int YJoy) {
   //Master PID
   GlobalPos = (positionLeft + positionRight) / 2;
   GlobalVel = GlobalPos - PreviousGlobalPos;
+  PreviousGlobalPos = GlobalPos;
   TargetAngle = (TargetPos - GlobalPos) * PosProp - GlobalVel * PosDif;
 
   if (TargetAngle > MaxTargetAngle) {
@@ -40,17 +41,15 @@ void PID(int XJoy, int YJoy) {
 	  MainSpeed = (TargetAngle + angle_y)*AggProp - AngleSpeed_y * AggDif;
   }
   
-  PreviousGlobalPos = GlobalPos;
-
   if (angle_y < -25 || angle_y > 25) // Stops robot when angles are too big
   {
     start = false;
     Serial2.print ("Marvin Stopped due to angle error");
   }
-  else  // PID and engine Controler
+  else  // Motor Controler
   {
-	Motor1Speed = MainSpeed*rightMotorScalerFwd; // (MainSpeed - PropSteering * (angleXJoy - 50))*rightMotorScalerFwd;
-    Motor2Speed = MainSpeed*leftMotorScalerFwd; // (MainSpeed + PropSteering * (angleXJoy - 50))*leftMotorScalerFwd;
+	Motor1Speed = (MainSpeed - PropSteering * (XJoy - 50))*rightMotorScalerFwd;
+    Motor2Speed = (MainSpeed + PropSteering * (XJoy - 50))*leftMotorScalerFwd;
 
 	if (Motor1Speed > 0) {
 		Motor1Speed = Motor1Speed + minSpeedRight;

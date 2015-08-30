@@ -23,9 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.StartStopButton = New System.Windows.Forms.Button()
         Me.JoyStickButton = New System.Windows.Forms.Button()
@@ -156,20 +156,20 @@ Partial Class Form1
         Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea1.AxisX.IsStartedFromZero = False
-        ChartArea1.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
+        ChartArea2.AxisX.IsStartedFromZero = False
+        ChartArea2.BackSecondaryColor = System.Drawing.Color.Red
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
         Me.Chart1.Cursor = System.Windows.Forms.Cursors.Cross
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(-1, 159)
         Me.Chart1.Margin = New System.Windows.Forms.Padding(2)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(724, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
@@ -380,7 +380,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(233, 87)
+        Me.Label6.Location = New System.Drawing.Point(153, 92)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
@@ -389,7 +389,7 @@ Partial Class Form1
         '
         'PosPropBox
         '
-        Me.PosPropBox.Location = New System.Drawing.Point(234, 102)
+        Me.PosPropBox.Location = New System.Drawing.Point(154, 107)
         Me.PosPropBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosPropBox.Name = "PosPropBox"
         Me.PosPropBox.Size = New System.Drawing.Size(61, 20)
@@ -398,7 +398,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(233, 50)
+        Me.Label7.Location = New System.Drawing.Point(230, 92)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
@@ -407,7 +407,7 @@ Partial Class Form1
         '
         'PosDifBox
         '
-        Me.PosDifBox.Location = New System.Drawing.Point(235, 65)
+        Me.PosDifBox.Location = New System.Drawing.Point(232, 107)
         Me.PosDifBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosDifBox.Name = "PosDifBox"
         Me.PosDifBox.Size = New System.Drawing.Size(71, 20)
@@ -470,7 +470,7 @@ Partial Class Form1
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(150, 87)
+        Me.Label11.Location = New System.Drawing.Point(232, 50)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 13)
@@ -479,7 +479,7 @@ Partial Class Form1
         '
         'FuzzyTransBox
         '
-        Me.FuzzyTransBox.Location = New System.Drawing.Point(152, 102)
+        Me.FuzzyTransBox.Location = New System.Drawing.Point(234, 65)
         Me.FuzzyTransBox.Margin = New System.Windows.Forms.Padding(2)
         Me.FuzzyTransBox.Name = "FuzzyTransBox"
         Me.FuzzyTransBox.Size = New System.Drawing.Size(71, 20)
