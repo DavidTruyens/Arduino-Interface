@@ -28,6 +28,7 @@ Partial Class SettingsForm
         Me.RefreshRateSettings = New System.Windows.Forms.TextBox()
         Me.SampleTimeBox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.MotorCalibButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BaudRatesBox
@@ -79,11 +80,21 @@ Partial Class SettingsForm
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "PID SampleTime"
         '
+        'MotorCalibButton
+        '
+        Me.MotorCalibButton.Location = New System.Drawing.Point(15, 113)
+        Me.MotorCalibButton.Name = "MotorCalibButton"
+        Me.MotorCalibButton.Size = New System.Drawing.Size(143, 23)
+        Me.MotorCalibButton.TabIndex = 6
+        Me.MotorCalibButton.Text = "Motor calibration"
+        Me.MotorCalibButton.UseVisualStyleBackColor = True
+        '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(312, 127)
+        Me.ClientSize = New System.Drawing.Size(312, 148)
+        Me.Controls.Add(Me.MotorCalibButton)
         Me.Controls.Add(Me.SampleTimeBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.RefreshRateSettings)
@@ -103,4 +114,5 @@ Partial Class SettingsForm
     Friend WithEvents RefreshRateSettings As TextBox
     Friend WithEvents SampleTimeBox As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents MotorCalibButton As Button
 End Class

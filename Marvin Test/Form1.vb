@@ -124,7 +124,12 @@ Public Class Form1
         End If
         Timer1.Start()
 
-        SerialPort1.WriteLine("a")
+        Try
+            SerialPort1.WriteLine("a")
+        Catch ex As Exception
+            MsgBox("Arduino detected, but no connection could be made")
+            Me.BackColor = Color.Red
+        End Try
 
     End Sub
 
@@ -543,6 +548,7 @@ Public Class Form1
     End Sub
 
     Private Sub SerialPortList_DropDown(sender As Object, e As EventArgs) Handles SerialPortList.DropDown
+        serialclose()
         SearchComPorts()
     End Sub
 

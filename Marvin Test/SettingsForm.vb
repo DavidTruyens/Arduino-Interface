@@ -43,4 +43,11 @@
             End If
         End If
     End Sub
+
+    Private Sub MotorCalibButton_Click(sender As Object, e As EventArgs) Handles MotorCalibButton.Click
+        MessageBox.Show("To calibrate the motors make sure the wheels can spin freely. Press Ok when ready", "Motor calibration", MessageBoxButtons.OKCancel)
+        If MsgBoxResult.Ok Then
+            My.Forms.Form1.SerialPort1.WriteLine("c")
+        End If
+    End Sub
 End Class
