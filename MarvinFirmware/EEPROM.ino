@@ -6,6 +6,9 @@ void SaveValues() {
   EEPROM.writeDouble(60, Kalman);
   EEPROM.writeDouble(70, PosDif);
   EEPROM.writeDouble(80, PosProp);
+  EEPROM.writeDouble(130, MaxTargetAngle);
+  EEPROM.writeDouble(140, AggProp);
+  EEPROM.writeDouble(150, AggDif);
   Serial.println ("Values Stored!");
 }
 
@@ -16,6 +19,9 @@ void GetValues() {
   Kalman = EEPROM.readDouble(60);
   PosDif = EEPROM.readDouble(70);
   PosProp = EEPROM.readDouble(80);
+  MaxTargetAngle = EEPROM.readDouble(130);
+  AggProp = EEPROM.readDouble(140);
+  AggDif = EEPROM.readDouble(150);
 }
 
 void SaveCalibrationValues() {

@@ -5,7 +5,7 @@ long GlobalPos = 0;
 double GlobalVel = 0;
 long TargetPos = 0;
 double TargetAngle;
-double MaxTargetAngle=2;
+
 
 long PreviousGlobalPos;
 
@@ -28,20 +28,14 @@ void PID(int XJoy, int YJoy) {
     TargetAngle = -MaxTargetAngle;
   }
 
-  //Slave PID
-  MainSpeed = (TargetAngle+angle_y)*Prop - AngleSpeed_y * Dif;
-
-
-/*
-  // Balance Angle Correction
-  angleSum = angleSum + angle_y;
-  IntegerAction = angleSum * Int;
-  balanceAngle = NValue + angle_y + (YJoy - 50) * AngleJoyProp ;
-  // PID Output
-  MainSpeed = balanceAngle * Prop - AngleSpeed_y * Dif + IntegerAction;
-  // Drive Motors
-*/
-
+  //Slave PID 
+  if (YJoy >= -MaxTargetAngle || YJoy <= MaxTargetAngle) {   
+	  MainSpeed = (TargetAngle + angle_y)*Prop - AngleSpeed_y * Dif;
+  }
+  else {
+	  MainSpeed = (TargetAngle + angle_y)*AggProp - AngleSpeed_y * AggDif;
+  }
+  
   PreviousGlobalPos = GlobalPos;
 
   if (angle_y < -25 || angle_y > 25) // Stops robot when angles are too big
@@ -51,8 +45,8 @@ void PID(int XJoy, int YJoy) {
   }
   else  // PID and engine Controler
   {
-    Motor1Speed = (MainSpeed - PropSteering * (angleXJoy - 50))*rightMotorScalerFwd;
-    Motor2Speed = (MainSpeed + PropSteering * (angleXJoy - 50))*leftMotorScalerFwd;
+	Motor1Speed = MainSpeed*rightMotorScalerFwd; // (MainSpeed - PropSteering * (angleXJoy - 50))*rightMotorScalerFwd;
+    Motor2Speed = MainSpeed*leftMotorScalerFwd; // (MainSpeed + PropSteering * (angleXJoy - 50))*leftMotorScalerFwd;
 
 	if (Motor1Speed > 0) {
 		Motor1Speed = Motor1Speed + minSpeedRight;

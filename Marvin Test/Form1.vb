@@ -213,6 +213,24 @@ Public Class Form1
             If IsNumeric(StringOut) Then
                 KalmanBox.Text = StringOut
             End If
+        ElseIf StringOut.Contains("J") Then
+            StringOut = StringOut.Replace("J", "")
+            If IsNumeric(StringOut) Then
+                MaxTargetAngleBox.Text = StringOut
+            End If
+        ElseIf StringOut.Contains("L") Then
+            StringOut = StringOut.Replace("L", "")
+            If IsNumeric(StringOut) Then
+                AggPropBox.Text = StringOut
+            End If
+        ElseIf StringOut.Contains("O") Then
+            StringOut = StringOut.Replace("O", "")
+            If IsNumeric(StringOut) Then
+                AggDifBox.Text = StringOut
+            End If
+
+
+
         End If
 
         If plotindex > plotscale Then
@@ -273,157 +291,62 @@ Public Class Form1
     End Sub
 
     Private Sub DBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles DBox.MouseWheel
-        Dim NewDValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
-
-        If e.Delta > 0 Then
-            If IsNumeric(DBox.Text) Then
-                NewDValue = CDbl(DBox.Text)
-                'mousewheelpos = SystemInformation.MouseWheelScrollDelta
-                DBox.Text = NewDValue + increment
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(DBox.Text) Then
-                NewDValue = CDbl(DBox.Text)
-                DBox.Text = NewDValue - increment
-            End If
-        End If
-
-        SerialPort1.WriteLine("d")
-        SerialPort1.WriteLine("(" & DBox.Text & ")")
+        BoxValueChange("d", DBox, e.Delta)
 
     End Sub
 
     Private Sub PBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles PBox.MouseWheel
-        Dim NewPValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
+        BoxValueChange("p", PBox, e.Delta)
 
-        If e.Delta > 0 Then
-            If IsNumeric(PBox.Text) Then
-                NewPValue = CDbl(PBox.Text)
-                PBox.Text = NewPValue + increment
-                SerialPort1.WriteLine("p")
-                SerialPort1.WriteLine("(" & PBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(PBox.Text) Then
-                NewPValue = CDbl(PBox.Text)
-                PBox.Text = NewPValue - increment
-                SerialPort1.WriteLine("p")
-                SerialPort1.WriteLine("(" & PBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub IBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles IBox.MouseWheel
-        Dim NewIValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
+        BoxValueChange("i", IBox, e.Delta)
 
-        If e.Delta > 0 Then
-            If IsNumeric(IBox.Text) Then
-                NewIValue = CDbl(IBox.Text)
-                IBox.Text = NewIValue + increment
-                SerialPort1.WriteLine("i")
-                SerialPort1.WriteLine("(" & IBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(IBox.Text) Then
-                NewIValue = CDbl(IBox.Text)
-                IBox.Text = NewIValue - increment
-                SerialPort1.WriteLine("i")
-                SerialPort1.WriteLine("(" & IBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub PosPropBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles PosPropBox.MouseWheel
-        Dim NewPosPropValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
+        BoxValueChange("t", PosPropBox, e.Delta)
 
-        If e.Delta > 0 Then
-            If IsNumeric(PosPropBox.Text) Then
-                NewPosPropValue = CDbl(PosPropBox.Text)
-                PosPropBox.Text = NewPosPropValue + increment
-                SerialPort1.WriteLine("t")
-                SerialPort1.WriteLine("(" & PosPropBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(PosPropBox.Text) Then
-                NewPosPropValue = CDbl(PosPropBox.Text)
-                PosPropBox.Text = NewPosPropValue - increment
-                SerialPort1.WriteLine("t")
-                SerialPort1.WriteLine("(" & PosPropBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub PosDifBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles PosDifBox.MouseWheel
-        Dim NewPosDifValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
+        BoxValueChange("u", PosDifBox, e.Delta)
 
-        If e.Delta > 0 Then
-            If IsNumeric(PosDifBox.Text) Then
-                NewPosDifValue = CDbl(PosDifBox.Text)
-                PosDifBox.Text = NewPosDifValue + increment
-                SerialPort1.WriteLine("u")
-                SerialPort1.WriteLine("(" & PosDifBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(IBox.Text) Then
-                NewPosDifValue = CDbl(PosDifBox.Text)
-                PosDifBox.Text = NewPosDifValue - increment
-                SerialPort1.WriteLine("u")
-                SerialPort1.WriteLine("(" & PosDifBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub KalmanBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles KalmanBox.MouseWheel
-        Dim NewKalmanValue As Double
-        Dim increment As Double = 1
 
-        If IsNumeric(IncrementBox.Text) Then
-            increment = CDbl(IncrementBox.Text)
-        End If
+        BoxValueChange("k", KalmanBox, e.Delta)
 
-        If e.Delta > 0 Then
-            If IsNumeric(KalmanBox.Text) Then
-                NewKalmanValue = CDbl(KalmanBox.Text)
-                KalmanBox.Text = NewKalmanValue + increment
-                SerialPort1.WriteLine("k")
-                SerialPort1.WriteLine("(" & KalmanBox.Text & ")")
-            End If
-        ElseIf e.Delta < 0 Then
-            If IsNumeric(KalmanBox.Text) Then
-                NewKalmanValue = CDbl(KalmanBox.Text)
-                KalmanBox.Text = NewKalmanValue - increment
-                SerialPort1.WriteLine("k")
-                SerialPort1.WriteLine("(" & KalmanBox.Text & ")")
-            End If
-        End If
     End Sub
 
     Private Sub NeutralAngleBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles NeutralAngleBox.MouseWheel
+
+        BoxValueChange("n", NeutralAngleBox, e.Delta)
+
+    End Sub
+
+    Private Sub MaxTargetAngleBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles MaxTargetAngleBox.MouseWheel
+
+        BoxValueChange("j", MaxTargetAngleBox, e.Delta)
+
+    End Sub
+
+    Private Sub AggPropBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles AggPropBox.MouseWheel
+        BoxValueChange("l", AggPropBox, e.Delta)
+    End Sub
+
+    Private Sub AggDifBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles AggDifBox.MouseWheel
+        BoxValueChange("o", AggDifBox, e.Delta)
+    End Sub
+
+    Private Sub BoxValueChange(ByVal menuletter As String, ByVal boxname As Windows.Forms.TextBox, mousewheel As Integer)
         Dim NValue As Double
         Dim increment As Double
 
@@ -431,17 +354,16 @@ Public Class Form1
             increment = CDbl(IncrementBox.Text)
         End If
 
-        If e.Delta > 0 Then
-            NValue = CDbl(NeutralAngleBox.Text)
-            NeutralAngleBox.Text = NValue + increment
-            SerialPort1.WriteLine("n")
-            SerialPort1.WriteLine("(" & NeutralAngleBox.Text & ")")
-        ElseIf e.Delta < 0 Then
-            NValue = CDbl(NeutralAngleBox.Text)
-            NeutralAngleBox.Text = NValue - increment
-            SerialPort1.WriteLine("n")
-            SerialPort1.WriteLine("(" & NeutralAngleBox.Text & ")")
+        NValue = CDbl(boxname.Text)
+
+        If mousewheel > 0 Then
+            boxname.Text = NValue + increment
+        ElseIf mousewheel < 0 Then
+            boxname.Text = NValue - increment
         End If
+
+        SerialPort1.WriteLine(menuletter)
+        SerialPort1.WriteLine("(" & boxname.Text & ")")
     End Sub
 
     Private Sub Plot_Click(sender As Object, e As EventArgs) Handles Plot.Click
@@ -551,6 +473,5 @@ Public Class Form1
         serialclose()
         SearchComPorts()
     End Sub
-
 
 End Class

@@ -62,6 +62,12 @@ Partial Class Form1
         Me.PosPropBox = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PosDifBox = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.MaxTargetAngleBox = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.AggPropBox = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.AggDifBox = New System.Windows.Forms.TextBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +76,7 @@ Partial Class Form1
         'StartStopButton
         '
         Me.StartStopButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.StartStopButton.Location = New System.Drawing.Point(450, 27)
+        Me.StartStopButton.Location = New System.Drawing.Point(562, 27)
         Me.StartStopButton.Margin = New System.Windows.Forms.Padding(2)
         Me.StartStopButton.Name = "StartStopButton"
         Me.StartStopButton.Size = New System.Drawing.Size(151, 20)
@@ -81,7 +87,7 @@ Partial Class Form1
         'JoyStickButton
         '
         Me.JoyStickButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JoyStickButton.Location = New System.Drawing.Point(450, 52)
+        Me.JoyStickButton.Location = New System.Drawing.Point(562, 52)
         Me.JoyStickButton.Margin = New System.Windows.Forms.Padding(2)
         Me.JoyStickButton.Name = "JoyStickButton"
         Me.JoyStickButton.Size = New System.Drawing.Size(150, 20)
@@ -162,14 +168,14 @@ Partial Class Form1
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(612, 252)
+        Me.Chart1.Size = New System.Drawing.Size(724, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
         '
         'Plot
         '
         Me.Plot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Plot.Location = New System.Drawing.Point(450, 76)
+        Me.Plot.Location = New System.Drawing.Point(562, 76)
         Me.Plot.Margin = New System.Windows.Forms.Padding(2)
         Me.Plot.Name = "Plot"
         Me.Plot.Size = New System.Drawing.Size(150, 20)
@@ -186,7 +192,7 @@ Partial Class Form1
         Me.SerialPortList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SerialPortList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SerialPortList.FormattingEnabled = True
-        Me.SerialPortList.Location = New System.Drawing.Point(450, 3)
+        Me.SerialPortList.Location = New System.Drawing.Point(562, 3)
         Me.SerialPortList.Margin = New System.Windows.Forms.Padding(2)
         Me.SerialPortList.Name = "SerialPortList"
         Me.SerialPortList.Size = New System.Drawing.Size(151, 21)
@@ -205,16 +211,16 @@ Partial Class Form1
         '
         'IncrementBox
         '
-        Me.IncrementBox.Location = New System.Drawing.Point(246, 107)
+        Me.IncrementBox.Location = New System.Drawing.Point(452, 97)
         Me.IncrementBox.Margin = New System.Windows.Forms.Padding(2)
         Me.IncrementBox.Name = "IncrementBox"
-        Me.IncrementBox.Size = New System.Drawing.Size(57, 20)
+        Me.IncrementBox.Size = New System.Drawing.Size(77, 20)
         Me.IncrementBox.TabIndex = 18
         '
         'Increment
         '
         Me.Increment.AutoSize = True
-        Me.Increment.Location = New System.Drawing.Point(244, 90)
+        Me.Increment.Location = New System.Drawing.Point(450, 80)
         Me.Increment.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Increment.Name = "Increment"
         Me.Increment.Size = New System.Drawing.Size(54, 13)
@@ -285,7 +291,7 @@ Partial Class Form1
         'SaveValues
         '
         Me.SaveValues.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveValues.Location = New System.Drawing.Point(450, 100)
+        Me.SaveValues.Location = New System.Drawing.Point(562, 100)
         Me.SaveValues.Margin = New System.Windows.Forms.Padding(2)
         Me.SaveValues.Name = "SaveValues"
         Me.SaveValues.Size = New System.Drawing.Size(150, 20)
@@ -310,7 +316,7 @@ Partial Class Form1
         '
         Me.IncreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.IncreaseScale.AutoSize = True
-        Me.IncreaseScale.Location = New System.Drawing.Point(584, 385)
+        Me.IncreaseScale.Location = New System.Drawing.Point(696, 385)
         Me.IncreaseScale.Name = "IncreaseScale"
         Me.IncreaseScale.Size = New System.Drawing.Size(13, 13)
         Me.IncreaseScale.TabIndex = 30
@@ -320,7 +326,7 @@ Partial Class Form1
         '
         Me.DecreaseScale.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DecreaseScale.AutoSize = True
-        Me.DecreaseScale.Location = New System.Drawing.Point(564, 385)
+        Me.DecreaseScale.Location = New System.Drawing.Point(676, 385)
         Me.DecreaseScale.Name = "DecreaseScale"
         Me.DecreaseScale.Size = New System.Drawing.Size(10, 13)
         Me.DecreaseScale.TabIndex = 31
@@ -329,7 +335,7 @@ Partial Class Form1
         'SettingButton
         '
         Me.SettingButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SettingButton.Location = New System.Drawing.Point(450, 124)
+        Me.SettingButton.Location = New System.Drawing.Point(562, 124)
         Me.SettingButton.Margin = New System.Windows.Forms.Padding(2)
         Me.SettingButton.Name = "SettingButton"
         Me.SettingButton.Size = New System.Drawing.Size(150, 28)
@@ -354,7 +360,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(165, 90)
+        Me.Label5.Location = New System.Drawing.Point(453, 35)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 13)
@@ -363,7 +369,7 @@ Partial Class Form1
         '
         'KalmanBox
         '
-        Me.KalmanBox.Location = New System.Drawing.Point(165, 107)
+        Me.KalmanBox.Location = New System.Drawing.Point(453, 52)
         Me.KalmanBox.Margin = New System.Windows.Forms.Padding(2)
         Me.KalmanBox.Name = "KalmanBox"
         Me.KalmanBox.Size = New System.Drawing.Size(76, 20)
@@ -372,7 +378,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(167, 50)
+        Me.Label6.Location = New System.Drawing.Point(233, 87)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
@@ -381,7 +387,7 @@ Partial Class Form1
         '
         'PosPropBox
         '
-        Me.PosPropBox.Location = New System.Drawing.Point(168, 65)
+        Me.PosPropBox.Location = New System.Drawing.Point(234, 102)
         Me.PosPropBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosPropBox.Name = "PosPropBox"
         Me.PosPropBox.Size = New System.Drawing.Size(61, 20)
@@ -405,12 +411,72 @@ Partial Class Form1
         Me.PosDifBox.Size = New System.Drawing.Size(71, 20)
         Me.PosDifBox.TabIndex = 37
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(450, 118)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 13)
+        Me.Label8.TabIndex = 40
+        Me.Label8.Text = "Max Target Angle"
+        '
+        'MaxTargetAngleBox
+        '
+        Me.MaxTargetAngleBox.Location = New System.Drawing.Point(451, 133)
+        Me.MaxTargetAngleBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaxTargetAngleBox.Name = "MaxTargetAngleBox"
+        Me.MaxTargetAngleBox.Size = New System.Drawing.Size(78, 20)
+        Me.MaxTargetAngleBox.TabIndex = 39
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(69, 50)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(51, 13)
+        Me.Label9.TabIndex = 42
+        Me.Label9.Text = "Agg-Prop"
+        '
+        'AggPropBox
+        '
+        Me.AggPropBox.Location = New System.Drawing.Point(71, 65)
+        Me.AggPropBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.AggPropBox.Name = "AggPropBox"
+        Me.AggPropBox.Size = New System.Drawing.Size(71, 20)
+        Me.AggPropBox.TabIndex = 41
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(151, 50)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(42, 13)
+        Me.Label10.TabIndex = 44
+        Me.Label10.Text = "Agg-Dif"
+        '
+        'AggDifBox
+        '
+        Me.AggDifBox.Location = New System.Drawing.Point(153, 65)
+        Me.AggDifBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.AggDifBox.Name = "AggDifBox"
+        Me.AggDifBox.Size = New System.Drawing.Size(71, 20)
+        Me.AggDifBox.TabIndex = 43
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ClientSize = New System.Drawing.Size(610, 409)
+        Me.ClientSize = New System.Drawing.Size(722, 409)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.AggDifBox)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.AggPropBox)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.MaxTargetAngleBox)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.PosDifBox)
         Me.Controls.Add(Me.Label6)
@@ -490,4 +556,10 @@ Partial Class Form1
     Friend WithEvents PosPropBox As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents PosDifBox As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents MaxTargetAngleBox As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents AggPropBox As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents AggDifBox As TextBox
 End Class

@@ -10,6 +10,8 @@ DualVNH5019MotorShield md;
 double Prop = 30;
 double Dif = 0.5;
 double Int = 0.1;
+double AggProp = 40;
+double AggDif = 1;
 double PosProp = 0.01;
 double PosDif = 0.01;
 double Kalman = 0.96;
@@ -22,6 +24,7 @@ double balanceAngle;
 int Steering = 53;
 double PropSteering = 0.5;
 double AngleJoyProp = 0.05;
+double MaxTargetAngle = 2;
 
 int PinX = A0;
 int PinY = A3;

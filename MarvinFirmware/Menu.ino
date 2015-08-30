@@ -30,6 +30,8 @@ void SerialCom() {
         Serial.println ("Press p to change the P-value");
         Serial.println ("Press d to change the D-value");
         Serial.println ("Press i to change the I-value");
+		Serial.println ("Press l to change the Agg-P value");
+		Serial.println ("Perss o to change the Agg-D value");
         Serial.println ("Press k to change the Kalman-value");
         Serial.println ("Press t to change the PosProp-value");
         Serial.println ("Press u to change the PosDif-value");
@@ -37,11 +39,11 @@ void SerialCom() {
         Serial.println ("Press n to set the neutural angle");
         Serial.println ("Press b to reset the position");
         Serial.println ("Press x to view motor values");
-        Serial.println ("Press m to change max Target angle");
+        Serial.println ("Press j to change max Target angle");
         Serial.println ("Press y to enable or disable JoyStick control");
         Serial.println ("Press z to store PID values");
         Serial.println ("Press c to calibrate motors");
-		// e, f, g and h are used to print the calibration values. Not yet used: j l o q r v w
+		// e, f, g and h are used to print the calibration values. Not yet used: q r v w
         inByte = 0;
         break;
 
@@ -125,6 +127,30 @@ void SerialCom() {
         Menu = 7;
         inByte = 0;
         break;
+
+	  case 'j':
+		  Serial.print("Current Max Target Angle is: ");
+		  Serial.println(MaxTargetAngle);
+		  Serial.println("Enter a new Max Target Angle between ()");
+		  Menu = 8;
+		  inByte = 0;
+		  break;
+
+	  case 'l':
+		  Serial.print("Current Agg Prop value is: ");
+		  Serial.println(AggProp);
+		  Serial.println("Enter a new Agg Prop value between ()");
+		  Menu = 9;
+		  inByte = 0;
+		  break;
+
+	  case 'o':
+		  Serial.print("Current Agg Dif value is: ");
+		  Serial.println(AggDif);
+		  Serial.println("Enter a new Agg Dif value between ()");
+		  Menu = 10;
+		  inByte = 0;
+		  break;
 
       case 'a':
         PrintPIDValues();
@@ -220,6 +246,24 @@ void SerialCom() {
           Serial.print("New PosDif Value = ");
           Serial.println(PosDif, 4);
         }
+		else if (Menu == 8) {
+			MaxTargetAngle = processNumber;
+			Menu = 0;
+			Serial.print("New Max Target Angle Value = ");
+			Serial.println(MaxTargetAngle, 4);
+		}
+		else if (Menu == 9) {
+			AggProp = processNumber;
+			Menu = 0;
+			Serial.print("New Agg Prop Value = ");
+			Serial.println(AggProp, 4);
+		}
+		else if (Menu == 10) {
+			AggDif = processNumber;
+			Menu = 0;
+			Serial.print("New Agg Dif Value = ");
+			Serial.println(AggDif, 4);
+		}
         break;
     }
   }

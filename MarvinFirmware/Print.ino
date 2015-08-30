@@ -17,6 +17,13 @@ void PrintPIDValues(){
   Serial2.print("U");
   Serial2.println(PosDif,4);
   delay(100);
+  Serial2.print("J");
+  Serial2.println(MaxTargetAngle, 4);
+  delay(100);
+  Serial2.print("L");
+  Serial2.println(AggProp, 4);
+  Serial2.print("O");
+  Serial2.println(AggDif);
   Serial.print("Prop value: ");
   Serial.println(Prop,4);
   Serial.print("Dif value: ");
@@ -37,6 +44,12 @@ void PrintPIDValues(){
   Serial.println(minSpeedRight);
   Serial.print("minSpeedLeft: ");
   Serial.println(minSpeedLeft);
+  Serial.print("max target angle: ");
+  Serial.println(MaxTargetAngle);
+  Serial.print("Agg Prop value: ");
+  Serial.println(AggProp);
+  Serial.print("Add Dif value: ");
+  Serial.println(AggDif);
   }
     
 void PrintApp(){
