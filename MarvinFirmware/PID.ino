@@ -32,8 +32,8 @@ void PID(int XJoy, int YJoy) {
   if (abs(TargetAngle) <= MaxTargetAngle) {   
 	  MainSpeed = (TargetAngle + angle_y)*Prop - AngleSpeed_y * Dif;
   }
-  else if (abs(TargetAngle) > MaxTargetAngle && abs(TargetAngle) <= MaxTargetAngle + FuzzyTransition) {
-	  double FuzzyFactor = (TargetAngle - MaxTargetAngle) / FuzzyTransition;
+  else if (abs(TargetAngle) > MaxTargetAngle && abs(TargetAngle) <= (MaxTargetAngle + FuzzyTransition)) {
+	  double FuzzyFactor = (abs(TargetAngle) - MaxTargetAngle) / FuzzyTransition;
 	  MainSpeed = (TargetAngle + angle_y)*(Prop+(AggProp-Prop)*FuzzyFactor) - AngleSpeed_y * (Dif + (AggDif-Dif)*FuzzyFactor);
   }
   else {
