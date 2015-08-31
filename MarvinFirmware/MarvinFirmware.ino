@@ -40,6 +40,7 @@ float angle_z;
 double AngleSpeed_y;
 
 boolean start = false;
+boolean flat = false;
 boolean joystick = false;
 boolean calibrateMotors = false;
 
@@ -92,6 +93,7 @@ void loop()
     md.setM1Speed (Motor1Speed);
     md.setM2Speed (Motor2Speed);
     stopIfFault();
+	flatStart();
   }
   SerialCom();
 }

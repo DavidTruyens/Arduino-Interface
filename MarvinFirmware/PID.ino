@@ -92,3 +92,16 @@ void stopIfFault()
   }
 }
 
+// AutoStart
+void flatStart() {
+	if (angle_y > 70 || angle_y < -70) {
+		flat = true;
+	}
+	if (flat) {
+		if (angle_y > -5 || angle_y < 5) {
+			flat = false;
+			start = true;
+		}
+	}
+}
+
