@@ -30,10 +30,10 @@ void PID(int XJoy, int YJoy) {
   }
 
   //Slave PID 
-  if (abs(TargetAngle) <= MaxTargetAngle) {   
+  if (abs(TargetAngle) <= FuzzyStart) {   
 	  MainSpeed = (TargetAngle + angle_y)*Prop - AngleSpeed_y * Dif;
   }
-  else if (abs(TargetAngle) > MaxTargetAngle && abs(TargetAngle) <= (MaxTargetAngle + FuzzyTransition)) {
+  else if (abs(TargetAngle) > FuzzyStart && abs(FuzzyStart) <= (FuzzyStart + FuzzyTransition)) {
 	  double FuzzyFactor = (abs(TargetAngle) - MaxTargetAngle) / FuzzyTransition;
 	  MainSpeed = (TargetAngle + angle_y)*(Prop+(AggProp-Prop)*FuzzyFactor) - AngleSpeed_y * (Dif + (AggDif-Dif)*FuzzyFactor);
   }
@@ -96,11 +96,14 @@ void stopIfFault()
 void flatStart() {
 	if (angle_y > 70 || angle_y < -70) {
 		flat = true;
+		Serial.println("Flat!");
 	}
 	if (flat) {
-		if (angle_y > -5 || angle_y < 5) {
+		Serial.println("In flat sub");
+		if (angle_y > -5 && angle_y < 5) {
 			flat = false;
 			start = true;
+			Serial.println("should be started");
 		}
 	}
 }

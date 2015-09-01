@@ -29,6 +29,10 @@ void PrintPIDValues(){
   Serial2.print("R");
   Serial2.println(FuzzyTransition);
   delay(100);
+  Serial2.print("W");
+  Serial2.println(FuzzyStart);
+  delay(100);
+
   Serial.print("Prop value: ");
   Serial.println(Prop,4);
   Serial.print("Dif value: ");
@@ -57,6 +61,8 @@ void PrintPIDValues(){
   Serial.println(AggDif);
   Serial.print("FuzzyTransition: ");
   Serial.println(FuzzyTransition);
+  Serial.print("Fuzzy Start: ");
+  Serial.println(FuzzyStart);
   }
     
 void PrintApp(){

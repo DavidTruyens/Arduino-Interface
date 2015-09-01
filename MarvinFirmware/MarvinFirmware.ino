@@ -26,6 +26,7 @@ double PropSteering = 0.5;
 double AngleJoyProp = 0.05;
 double MaxTargetAngle = 2;
 double FuzzyTransition = 2;
+double FuzzyStart = 2;
 
 int PinX = A0;
 int PinY = A3;

@@ -226,6 +226,11 @@ Public Class Form1
             If IsNumeric(StringOut) Then
                 FuzzyTransBox.Text = StringOut
             End If
+        ElseIf StringOut.Contains("W") Then
+            StringOut = StringOut.Replace("W", "")
+            If IsNumeric(StringOut) Then
+                FuzzyStartBox.Text = StringOut
+            End If
         End If
 
         If plotindex > plotscale Then
@@ -345,6 +350,10 @@ Public Class Form1
         BoxValueChange("r", FuzzyTransBox, e.Delta)
     End Sub
 
+    Private Sub FuzzyStartBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles FuzzyStartBox.MouseWheel
+        BoxValueChange("w", FuzzyStartBox, e.Delta)
+    End Sub
+
     Private Sub BoxValueChange(ByVal menuletter As String, ByVal boxname As Windows.Forms.TextBox, mousewheel As Integer)
         Dim NValue As Double
         Dim increment As Double
@@ -384,15 +393,15 @@ Public Class Form1
 
     Private Sub StartStopButton_Click(sender As Object, e As EventArgs) Handles StartStopButton.Click
         SerialPort1.Write("s")
-        If started Then
-            Me.StartStopButton.Text = "Stop"
-            started = False
-            StartStopButton.BackColor = Color.Red
-        Else
-            Me.StartStopButton.Text = "Start"
-            started = True
-            StartStopButton.BackColor = Color.Green
-        End If
+        'If started Then
+        '    Me.StartStopButton.Text = "Stop"
+        '    started = False
+        '    StartStopButton.BackColor = Color.Red
+        'Else
+        '    Me.StartStopButton.Text = "Start"
+        '    started = True
+        '    StartStopButton.BackColor = Color.Green
+        'End If
     End Sub
 
     Private Sub SaveValues_Click(sender As Object, e As EventArgs) Handles SaveValues.Click
@@ -473,11 +482,4 @@ Public Class Form1
         SearchComPorts()
     End Sub
 
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub FuzzyTransBox_TextChanged(sender As Object, e As EventArgs) Handles FuzzyTransBox.TextChanged
-
-    End Sub
 End Class

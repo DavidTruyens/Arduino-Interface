@@ -23,9 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.StartStopButton = New System.Windows.Forms.Button()
         Me.JoyStickButton = New System.Windows.Forms.Button()
@@ -70,6 +70,8 @@ Partial Class Form1
         Me.AggDifBox = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.FuzzyTransBox = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.FuzzyStartBox = New System.Windows.Forms.TextBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,20 +158,20 @@ Partial Class Form1
         Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.AxisX.IsStartedFromZero = False
-        ChartArea2.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
+        ChartArea1.AxisX.IsStartedFromZero = False
+        ChartArea1.BackSecondaryColor = System.Drawing.Color.Red
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.Cursor = System.Windows.Forms.Cursors.Cross
-        Legend2.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend2)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(-1, 159)
         Me.Chart1.Margin = New System.Windows.Forms.Padding(2)
         Me.Chart1.Name = "Chart1"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart1.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(724, 252)
         Me.Chart1.TabIndex = 12
         Me.Chart1.Text = "Chart1"
@@ -380,7 +382,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(153, 92)
+        Me.Label6.Location = New System.Drawing.Point(73, 84)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
@@ -389,7 +391,7 @@ Partial Class Form1
         '
         'PosPropBox
         '
-        Me.PosPropBox.Location = New System.Drawing.Point(154, 107)
+        Me.PosPropBox.Location = New System.Drawing.Point(74, 99)
         Me.PosPropBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosPropBox.Name = "PosPropBox"
         Me.PosPropBox.Size = New System.Drawing.Size(61, 20)
@@ -398,7 +400,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(230, 92)
+        Me.Label7.Location = New System.Drawing.Point(150, 84)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
@@ -407,7 +409,7 @@ Partial Class Form1
         '
         'PosDifBox
         '
-        Me.PosDifBox.Location = New System.Drawing.Point(232, 107)
+        Me.PosDifBox.Location = New System.Drawing.Point(152, 99)
         Me.PosDifBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosDifBox.Name = "PosDifBox"
         Me.PosDifBox.Size = New System.Drawing.Size(71, 20)
@@ -485,12 +487,32 @@ Partial Class Form1
         Me.FuzzyTransBox.Size = New System.Drawing.Size(71, 20)
         Me.FuzzyTransBox.TabIndex = 45
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(232, 84)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(59, 13)
+        Me.Label12.TabIndex = 48
+        Me.Label12.Text = "Fuzzy Start"
+        '
+        'FuzzyStartBox
+        '
+        Me.FuzzyStartBox.Location = New System.Drawing.Point(234, 99)
+        Me.FuzzyStartBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.FuzzyStartBox.Name = "FuzzyStartBox"
+        Me.FuzzyStartBox.Size = New System.Drawing.Size(71, 20)
+        Me.FuzzyStartBox.TabIndex = 47
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(722, 409)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.FuzzyStartBox)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.FuzzyTransBox)
         Me.Controls.Add(Me.Label10)
@@ -586,4 +608,6 @@ Partial Class Form1
     Friend WithEvents AggDifBox As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents FuzzyTransBox As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents FuzzyStartBox As TextBox
 End Class

@@ -43,8 +43,9 @@ void SerialCom() {
         Serial.println ("Press y to enable or disable JoyStick control");
         Serial.println ("Press z to store PID values");
         Serial.println ("Press c to calibrate motors");
+		Serial.println ("Press w to change Fuzzystart");
 		Serial.println ("Press r to change the fuzzy zone");
-		// e, f, g and h are used to print the calibration values. Not yet used: q r v w
+		// e, f, g and h are used to print the calibration values. Not yet used: q v 
         inByte = 0;
         break;
 
@@ -158,6 +159,14 @@ void SerialCom() {
 		  Serial.println(FuzzyTransition);
 		  Serial.println("Enter a new value between ()");
 		  Menu = 11;
+		  inByte = 0;
+		  break;
+
+	  case 'w':
+		  Serial.print("Current Fuzzy start is: ");
+		  Serial.println(FuzzyTransition);
+		  Serial.println("Enter a new value between ()");
+		  Menu = 12;
 		  inByte = 0;
 		  break;
 
@@ -276,8 +285,14 @@ void SerialCom() {
 		else if (Menu == 11) {
 			FuzzyTransition = processNumber;
 			Menu = 0;
-			Serial.print("New Fuzzy Value = ");
+			Serial.print("New Fuzzy Transition Value = ");
 			Serial.println(FuzzyTransition, 4);
+		}
+		else if (Menu == 12) {
+			FuzzyStart = processNumber;
+			Menu = 0;
+			Serial.print("New Fuzzy Start Value = ");
+			Serial.println(FuzzyStart, 4);
 		}
         break;
     }
