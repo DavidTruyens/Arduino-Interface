@@ -107,7 +107,7 @@ Public Class Form1
         If Not SerialPort1.IsOpen Then
             Try
                 SerialPort1.PortName = portname
-                SerialPort1.BaudRate = My.Settings.LatestBaudRate
+                SerialPort1.BaudRate = 115200   'My.Settings.LatestBaudRate
                 SerialPort1.Open()
                 Me.BackColor = Color.Green
 

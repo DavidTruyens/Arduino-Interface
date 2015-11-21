@@ -28,5 +28,8 @@
     <ClInclude Include="Visual Micro\.MarvinFirmware.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="__vm\.MarvinFirmware.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
