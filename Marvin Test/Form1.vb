@@ -404,6 +404,10 @@ Public Class Form1
         'End If
     End Sub
 
+    Private Sub ResetPosButton_Click(sender As Object, e As EventArgs) Handles ResetPosButton.Click
+        SerialPort1.Write("b")
+    End Sub
+
     Private Sub SaveValues_Click(sender As Object, e As EventArgs) Handles SaveValues.Click
         SerialPort1.WriteLine("z")
     End Sub
@@ -481,5 +485,6 @@ Public Class Form1
         serialclose()
         SearchComPorts()
     End Sub
+
 
 End Class

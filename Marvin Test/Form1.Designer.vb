@@ -72,6 +72,7 @@ Partial Class Form1
         Me.FuzzyTransBox = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.FuzzyStartBox = New System.Windows.Forms.TextBox()
+        Me.ResetPosButton = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,18 +81,18 @@ Partial Class Form1
         'StartStopButton
         '
         Me.StartStopButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.StartStopButton.Location = New System.Drawing.Point(562, 27)
+        Me.StartStopButton.Location = New System.Drawing.Point(562, 26)
         Me.StartStopButton.Margin = New System.Windows.Forms.Padding(2)
         Me.StartStopButton.Name = "StartStopButton"
         Me.StartStopButton.Size = New System.Drawing.Size(151, 20)
         Me.StartStopButton.TabIndex = 2
-        Me.StartStopButton.Text = "Start"
+        Me.StartStopButton.Text = "Start - Stop"
         Me.StartStopButton.UseVisualStyleBackColor = True
         '
         'JoyStickButton
         '
         Me.JoyStickButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JoyStickButton.Location = New System.Drawing.Point(562, 52)
+        Me.JoyStickButton.Location = New System.Drawing.Point(562, 46)
         Me.JoyStickButton.Margin = New System.Windows.Forms.Padding(2)
         Me.JoyStickButton.Name = "JoyStickButton"
         Me.JoyStickButton.Size = New System.Drawing.Size(150, 20)
@@ -179,7 +180,7 @@ Partial Class Form1
         'Plot
         '
         Me.Plot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Plot.Location = New System.Drawing.Point(562, 76)
+        Me.Plot.Location = New System.Drawing.Point(562, 66)
         Me.Plot.Margin = New System.Windows.Forms.Padding(2)
         Me.Plot.Name = "Plot"
         Me.Plot.Size = New System.Drawing.Size(150, 20)
@@ -295,7 +296,7 @@ Partial Class Form1
         'SaveValues
         '
         Me.SaveValues.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveValues.Location = New System.Drawing.Point(562, 100)
+        Me.SaveValues.Location = New System.Drawing.Point(562, 106)
         Me.SaveValues.Margin = New System.Windows.Forms.Padding(2)
         Me.SaveValues.Name = "SaveValues"
         Me.SaveValues.Size = New System.Drawing.Size(150, 20)
@@ -339,7 +340,7 @@ Partial Class Form1
         'SettingButton
         '
         Me.SettingButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SettingButton.Location = New System.Drawing.Point(562, 124)
+        Me.SettingButton.Location = New System.Drawing.Point(562, 126)
         Me.SettingButton.Margin = New System.Windows.Forms.Padding(2)
         Me.SettingButton.Name = "SettingButton"
         Me.SettingButton.Size = New System.Drawing.Size(150, 28)
@@ -505,12 +506,24 @@ Partial Class Form1
         Me.FuzzyStartBox.Size = New System.Drawing.Size(71, 20)
         Me.FuzzyStartBox.TabIndex = 47
         '
+        'ResetPosButton
+        '
+        Me.ResetPosButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ResetPosButton.Location = New System.Drawing.Point(562, 86)
+        Me.ResetPosButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.ResetPosButton.Name = "ResetPosButton"
+        Me.ResetPosButton.Size = New System.Drawing.Size(150, 20)
+        Me.ResetPosButton.TabIndex = 49
+        Me.ResetPosButton.Text = "Reset Positoin"
+        Me.ResetPosButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(722, 409)
+        Me.Controls.Add(Me.ResetPosButton)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.FuzzyStartBox)
         Me.Controls.Add(Me.Label11)
@@ -610,4 +623,5 @@ Partial Class Form1
     Friend WithEvents FuzzyTransBox As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents FuzzyStartBox As TextBox
+    Friend WithEvents ResetPosButton As Button
 End Class
