@@ -33,7 +33,6 @@ Partial Class Form1
         Me.IBox = New System.Windows.Forms.TextBox()
         Me.DBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Plot = New System.Windows.Forms.Button()
@@ -73,6 +72,9 @@ Partial Class Form1
         Me.Label12 = New System.Windows.Forms.Label()
         Me.FuzzyStartBox = New System.Windows.Forms.TextBox()
         Me.ResetPosButton = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.CheckBoxWheelLeft = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxWheelRight = New System.Windows.Forms.CheckBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,16 +135,6 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(50, 13)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "P - Value"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(86, 11)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "I - Value"
         '
         'Label3
         '
@@ -216,7 +208,7 @@ Partial Class Form1
         '
         'IncrementBox
         '
-        Me.IncrementBox.Location = New System.Drawing.Point(452, 97)
+        Me.IncrementBox.Location = New System.Drawing.Point(230, 131)
         Me.IncrementBox.Margin = New System.Windows.Forms.Padding(2)
         Me.IncrementBox.Name = "IncrementBox"
         Me.IncrementBox.Size = New System.Drawing.Size(77, 20)
@@ -225,7 +217,7 @@ Partial Class Form1
         'Increment
         '
         Me.Increment.AutoSize = True
-        Me.Increment.Location = New System.Drawing.Point(450, 80)
+        Me.Increment.Location = New System.Drawing.Point(233, 118)
         Me.Increment.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Increment.Name = "Increment"
         Me.Increment.Size = New System.Drawing.Size(54, 13)
@@ -248,7 +240,7 @@ Partial Class Form1
         '
         Me.CMDLine.Location = New System.Drawing.Point(9, 132)
         Me.CMDLine.Name = "CMDLine"
-        Me.CMDLine.Size = New System.Drawing.Size(298, 20)
+        Me.CMDLine.Size = New System.Drawing.Size(214, 20)
         Me.CMDLine.TabIndex = 21
         '
         'Timer1
@@ -365,7 +357,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(453, 35)
+        Me.Label5.Location = New System.Drawing.Point(450, 79)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 13)
@@ -374,7 +366,7 @@ Partial Class Form1
         '
         'KalmanBox
         '
-        Me.KalmanBox.Location = New System.Drawing.Point(453, 52)
+        Me.KalmanBox.Location = New System.Drawing.Point(450, 96)
         Me.KalmanBox.Margin = New System.Windows.Forms.Padding(2)
         Me.KalmanBox.Name = "KalmanBox"
         Me.KalmanBox.Size = New System.Drawing.Size(76, 20)
@@ -383,7 +375,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(73, 84)
+        Me.Label6.Location = New System.Drawing.Point(157, 84)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
@@ -392,7 +384,7 @@ Partial Class Form1
         '
         'PosPropBox
         '
-        Me.PosPropBox.Location = New System.Drawing.Point(74, 99)
+        Me.PosPropBox.Location = New System.Drawing.Point(161, 99)
         Me.PosPropBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosPropBox.Name = "PosPropBox"
         Me.PosPropBox.Size = New System.Drawing.Size(61, 20)
@@ -401,7 +393,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(150, 84)
+        Me.Label7.Location = New System.Drawing.Point(237, 84)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
@@ -410,7 +402,7 @@ Partial Class Form1
         '
         'PosDifBox
         '
-        Me.PosDifBox.Location = New System.Drawing.Point(152, 99)
+        Me.PosDifBox.Location = New System.Drawing.Point(239, 99)
         Me.PosDifBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PosDifBox.Name = "PosDifBox"
         Me.PosDifBox.Size = New System.Drawing.Size(71, 20)
@@ -437,7 +429,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(69, 50)
+        Me.Label9.Location = New System.Drawing.Point(156, 50)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 13)
@@ -446,7 +438,7 @@ Partial Class Form1
         '
         'AggPropBox
         '
-        Me.AggPropBox.Location = New System.Drawing.Point(71, 65)
+        Me.AggPropBox.Location = New System.Drawing.Point(158, 65)
         Me.AggPropBox.Margin = New System.Windows.Forms.Padding(2)
         Me.AggPropBox.Name = "AggPropBox"
         Me.AggPropBox.Size = New System.Drawing.Size(71, 20)
@@ -455,7 +447,7 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(151, 50)
+        Me.Label10.Location = New System.Drawing.Point(238, 50)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(42, 13)
@@ -464,7 +456,7 @@ Partial Class Form1
         '
         'AggDifBox
         '
-        Me.AggDifBox.Location = New System.Drawing.Point(153, 65)
+        Me.AggDifBox.Location = New System.Drawing.Point(240, 65)
         Me.AggDifBox.Margin = New System.Windows.Forms.Padding(2)
         Me.AggDifBox.Name = "AggDifBox"
         Me.AggDifBox.Size = New System.Drawing.Size(71, 20)
@@ -473,7 +465,7 @@ Partial Class Form1
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(232, 50)
+        Me.Label11.Location = New System.Drawing.Point(450, 6)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 13)
@@ -482,16 +474,16 @@ Partial Class Form1
         '
         'FuzzyTransBox
         '
-        Me.FuzzyTransBox.Location = New System.Drawing.Point(234, 65)
+        Me.FuzzyTransBox.Location = New System.Drawing.Point(450, 21)
         Me.FuzzyTransBox.Margin = New System.Windows.Forms.Padding(2)
         Me.FuzzyTransBox.Name = "FuzzyTransBox"
-        Me.FuzzyTransBox.Size = New System.Drawing.Size(71, 20)
+        Me.FuzzyTransBox.Size = New System.Drawing.Size(74, 20)
         Me.FuzzyTransBox.TabIndex = 45
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(232, 84)
+        Me.Label12.Location = New System.Drawing.Point(450, 42)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(59, 13)
@@ -500,10 +492,10 @@ Partial Class Form1
         '
         'FuzzyStartBox
         '
-        Me.FuzzyStartBox.Location = New System.Drawing.Point(234, 99)
+        Me.FuzzyStartBox.Location = New System.Drawing.Point(450, 57)
         Me.FuzzyStartBox.Margin = New System.Windows.Forms.Padding(2)
         Me.FuzzyStartBox.Name = "FuzzyStartBox"
-        Me.FuzzyStartBox.Size = New System.Drawing.Size(71, 20)
+        Me.FuzzyStartBox.Size = New System.Drawing.Size(76, 20)
         Me.FuzzyStartBox.TabIndex = 47
         '
         'ResetPosButton
@@ -517,12 +509,46 @@ Partial Class Form1
         Me.ResetPosButton.Text = "Reset Positoin"
         Me.ResetPosButton.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(86, 11)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "I - Value"
+        '
+        'CheckBoxWheelLeft
+        '
+        Me.CheckBoxWheelLeft.AutoSize = True
+        Me.CheckBoxWheelLeft.Location = New System.Drawing.Point(65, 95)
+        Me.CheckBoxWheelLeft.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBoxWheelLeft.Name = "CheckBoxWheelLeft"
+        Me.CheckBoxWheelLeft.Size = New System.Drawing.Size(78, 17)
+        Me.CheckBoxWheelLeft.TabIndex = 51
+        Me.CheckBoxWheelLeft.Text = "Left Wheel"
+        Me.CheckBoxWheelLeft.UseVisualStyleBackColor = True
+        '
+        'CheckBoxWheelRight
+        '
+        Me.CheckBoxWheelRight.AutoSize = True
+        Me.CheckBoxWheelRight.Location = New System.Drawing.Point(65, 74)
+        Me.CheckBoxWheelRight.Margin = New System.Windows.Forms.Padding(2)
+        Me.CheckBoxWheelRight.Name = "CheckBoxWheelRight"
+        Me.CheckBoxWheelRight.Size = New System.Drawing.Size(85, 17)
+        Me.CheckBoxWheelRight.TabIndex = 50
+        Me.CheckBoxWheelRight.Text = "Right Wheel"
+        Me.CheckBoxWheelRight.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(722, 409)
+        Me.Controls.Add(Me.CheckBoxWheelLeft)
+        Me.Controls.Add(Me.CheckBoxWheelRight)
         Me.Controls.Add(Me.ResetPosButton)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.FuzzyStartBox)
@@ -584,7 +610,6 @@ Partial Class Form1
     Friend WithEvents IBox As System.Windows.Forms.TextBox
     Friend WithEvents DBox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Plot As System.Windows.Forms.Button
@@ -624,4 +649,7 @@ Partial Class Form1
     Friend WithEvents Label12 As Label
     Friend WithEvents FuzzyStartBox As TextBox
     Friend WithEvents ResetPosButton As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents CheckBoxWheelLeft As CheckBox
+    Friend WithEvents CheckBoxWheelRight As CheckBox
 End Class

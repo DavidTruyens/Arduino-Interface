@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("372, 75")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("462, 75")>  _
         Public Property ImagePOS() As Global.System.Drawing.Point
             Get
                 Return CType(Me("ImagePOS"),Global.System.Drawing.Point)

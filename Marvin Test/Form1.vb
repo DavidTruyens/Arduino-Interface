@@ -68,6 +68,13 @@ Public Class Form1
         Chart1.Series.Add("JoyY")
         Chart1.Series.Item("JoyY").ChartType = DataVisualization.Charting.SeriesChartType.Line
         Chart1.Series.Item("JoyY").Enabled = False
+        Chart1.Series.Add("RightWheel")
+        Chart1.Series.Item("RightWheel").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Item("RightWheel").Enabled = False
+        Chart1.Series.Add("LeftWheel")
+        Chart1.Series.Item("LeftWheel").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series.Item("LeftWheel").Enabled = False
+
 
     End Sub
 
@@ -170,6 +177,9 @@ Public Class Form1
             Me.Chart1.Series.Item("Angle").Points.AddXY(plotindex, values(2))
             Me.Chart1.Series.Item("JoyX").Points.AddXY(plotindex, values(0))
             Me.Chart1.Series.Item("JoyY").Points.AddXY(plotindex, values(1))
+            Me.Chart1.Series.Item("LeftWheel").Points.AddXY(plotindex, values(4))
+            Me.Chart1.Series.Item("RightWheel").Points.AddXY(plotindex, values(5))
+
             JoyStickTarget(values(0), values(1))
         ElseIf StringOut.Contains("P") Then
             StringOut = StringOut.Replace("P", "")
@@ -287,6 +297,22 @@ Public Class Form1
             Chart1.Series.Item(2).Enabled = True
         Else
             Chart1.Series.Item(2).Enabled = False
+        End If
+    End Sub
+
+    Private Sub CheckBoxWheelLeft_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxWheelLeft.CheckedChanged
+        If CheckBoxWheelLeft.Checked Then
+            Chart1.Series.Item(4).Enabled = True
+        Else
+            Chart1.Series.Item(4).Enabled = False
+        End If
+    End Sub
+
+    Private Sub CheckBoxWheelRight_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxWheelRight.CheckedChanged
+        If CheckBoxWheelRight.Checked Then
+            Chart1.Series.Item(3).Enabled = True
+        Else
+            Chart1.Series.Item(3).Enabled = False
         End If
     End Sub
 
